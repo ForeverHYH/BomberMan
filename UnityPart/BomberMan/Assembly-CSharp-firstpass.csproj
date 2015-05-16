@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\Behaviour.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\LevelOneStateMachine.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\LevelThreeStateMachine.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\levelTwoStateMachine.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\FloorCube.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\WallCube.cs" />

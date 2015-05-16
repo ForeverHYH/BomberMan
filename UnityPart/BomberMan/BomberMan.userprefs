@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/levelTwoStateMachine.cs">
+    <Files>
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/levelTwoStateMachine.cs" Line="15" Column="18" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/LevelOneStateMachine.cs" Line="15" Column="115" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/Behaviour.cs" Line="52" Column="2" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs" Line="57" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
