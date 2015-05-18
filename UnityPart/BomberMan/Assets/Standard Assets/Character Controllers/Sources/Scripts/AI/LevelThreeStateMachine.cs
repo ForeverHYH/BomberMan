@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LevelThreeStateMachine : MonoBehaviour {
 
-	private Behaviour levelThree = new Behaviour ();
+	private Action levelThree = new Action ();
 	private RaycastHit hit;
 	private int canonID = -1;
 	// Use this for initialization
@@ -24,6 +24,10 @@ public class LevelThreeStateMachine : MonoBehaviour {
 		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,1)&&hit.collider.transform.name.Equals("steel")||levelThree.isInDanger())
 		{
 			levelThree.TurnState();
+		}
+		else if(levelThree.isDead())
+		{
+			levelThree.DeadState();
 		}
 		else
 		{

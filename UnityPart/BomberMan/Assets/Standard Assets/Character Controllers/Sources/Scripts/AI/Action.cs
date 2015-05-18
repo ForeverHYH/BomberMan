@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Behaviour : MonoBehaviour {
+public class Action : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,7 @@ public class Behaviour : MonoBehaviour {
 	public void WalkState()
 	{
 		//This function is excute walk of robot, Contain danger area juge
+
 	}
 
 	public void TurnState()
@@ -32,6 +33,16 @@ public class Behaviour : MonoBehaviour {
 	{
 		//This function is excute catch of robot, when robot 'feel' 
 		//which means the distance is at least 3 cube, they will "Find Way" and catch player
+	}
+
+	public void DeadState()
+	{
+		//play dead animation.
+	}
+
+	public bool isDead()
+	{
+		return true;
 	}
 
 	public void Move()

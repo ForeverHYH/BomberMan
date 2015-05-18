@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LevelTwoStateMachine : MonoBehaviour {
 	
-	private Behaviour levelTwo = new Behaviour ();
+	private Action levelTwo = new Action ();
 	private RaycastHit hit;
 	private int canonID = -1;
 	// Use this for initialization
@@ -17,9 +17,13 @@ public class LevelTwoStateMachine : MonoBehaviour {
 		{
 			levelTwo.ShotState();
 		}
-		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,1)&&hit.collider.transform.name.Equals("steel")||levelOne.isInDanger())
+		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,1)&&hit.collider.transform.name.Equals("steel")||levelTwo.isInDanger())
 		{
 			levelTwo.TurnState();
+		}
+		else if(levelTwo.isDead())
+		{
+			levelTwo.DeadState();
 		}
 		else
 		{
