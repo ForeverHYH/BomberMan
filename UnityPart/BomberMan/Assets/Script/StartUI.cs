@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class StartUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,5 +11,10 @@ public class NewBehaviourScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void ClickStartBtn()
+	{
+		Application.LoadLevel("PlayScene");
 	}
 }

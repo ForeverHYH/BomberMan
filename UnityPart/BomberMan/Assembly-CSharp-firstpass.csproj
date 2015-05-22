@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\Action.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\AIAction.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\LevelOneStateMachine.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\LevelThreeStateMachine.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\LevelTwoStateMachine.cs" />

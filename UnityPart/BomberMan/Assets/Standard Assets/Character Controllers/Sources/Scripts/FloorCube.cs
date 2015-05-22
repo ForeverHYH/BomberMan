@@ -60,6 +60,7 @@ public class FloorCube : MonoBehaviour {
 			else if(timer==2*upTime +100) 
 			{
 				rigidbody.velocity = new Vector3(0,0,0);
+				transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
 				isMoving = 0;
 				SendMessagetoCharactor();
 			}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LevelThreeStateMachine : MonoBehaviour {
 
-	private Action levelThree = new Action ();
+	private AIAction levelThree = new AIAction ();
 	private RaycastHit hit;
 	private int canonID = -1;
 	// Use this for initialization

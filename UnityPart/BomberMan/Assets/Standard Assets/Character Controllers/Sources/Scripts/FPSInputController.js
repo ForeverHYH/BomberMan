@@ -1,9 +1,12 @@
 private var motor : CharacterMotor;
-
+private var playerAnimator : Animator;
 // Use this for initialization
 function Awake () {
 	motor = GetComponent(CharacterMotor);
+	playerAnimator = GetComponentInChildren(Animator);
 }
+
+
 
 // Update is called once per frame
 function Update () {
@@ -30,6 +33,18 @@ function Update () {
 	// Apply the direction to the CharacterMotor
 	motor.inputMoveDirection = transform.rotation * directionVector;
 	motor.inputJump = Input.GetButton("Jump");
+	
+	//Debug.Log("directorVector is "+directionVector);
+	//Debug.Log("rotation" + transform.rotation);
+	//set animation
+	if(directionVector.z!=0)
+	{
+		playerAnimator.SetTrigger("StandtoWalk");
+	}
+	else
+	{
+		playerAnimator.SetTrigger("WalktoStand");
+	}
 }
 
 // Require a character controller to be attached to the same game object
