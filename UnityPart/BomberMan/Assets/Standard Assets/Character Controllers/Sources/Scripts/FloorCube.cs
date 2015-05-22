@@ -5,6 +5,8 @@ using System.Threading;
 public class FloorCube : MonoBehaviour {
 
 	public int isMoving = 0;
+	public bool canMove = true;
+	private RaycastHit hit;
 	private bool isShut = true;
 	private int timer = 0;
 	private bool isChangeMaterail = false;
@@ -15,13 +17,14 @@ public class FloorCube : MonoBehaviour {
 
 	private float xrayDistance = 1.0f;
 	private int explosiveSpeed = 1;   //explosive speed related to time; only take 1, 2, 5
-	RaycastHit hit;
 	// Use this for initialization
 	void Start () {
 		foreach(Transform child in transform)
 		{
 			child.gameObject.SetActive(false);
 			child.gameObject.particleSystem.Stop();
+
+			transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
 		}
 
 	}
@@ -32,7 +35,19 @@ public class FloorCube : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		if(Physics.Raycast(transform.position,transform.forward ,out hit,2))
+		{
+			canMove = false;
+			Debug.DrawLine(transform.position,hit.point,Color.red);
+		}
+		if(!Physics.Raycast(transform.position,transform.forward ,out hit,2))
+		{
+			canMove = true;
+		}
+
 		if (isMoving == 1 ) {
+			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.1f);
+			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.2f);
 			renderer.material = originalMaterail;
 			isChangeMaterail = false;
 			int upTime =50/explosiveSpeed;
@@ -42,7 +57,11 @@ public class FloorCube : MonoBehaviour {
 				foreach(Transform child in transform)
 				{
 					child.gameObject.SetActive(true);
-					child.gameObject.particleSystem.startLifetime = xrayDistance;      //xrayDistance related to start life time
+					child.gameObject.particleSystem.startLifetime = xrayDistance/10;      //xrayDistance related to start life time
+					child.gameObject.particleSystem.startSize = 0.5f;
+
+					//child.gameObject.particleSystem.maxParticles = 20;
+					//child.gameObject.particleSystem.startSpeed = 15;
 					child.gameObject.particleSystem.Play();
 				}
 				rigidbody.velocity = new Vector3(0,0,0);
@@ -62,6 +81,8 @@ public class FloorCube : MonoBehaviour {
 				rigidbody.velocity = new Vector3(0,0,0);
 				transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
 				isMoving = 0;
+				gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
+				gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
 				SendMessagetoCharactor();
 			}
 			timer++; 
@@ -77,6 +98,9 @@ public class FloorCube : MonoBehaviour {
 				renderer.material = originalMaterail;
 				changeMaterailCount=0;
 			}
+		}
+		if (isMoving == 0) {
+			transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
 		}
 	}
 

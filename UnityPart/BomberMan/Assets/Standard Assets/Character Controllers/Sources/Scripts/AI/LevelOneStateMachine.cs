@@ -17,7 +17,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Physics.Raycast(transform.position,transform.forward ,out hit,0.5f)||levelOne.isInDanger())
+		if(Physics.Raycast(transform.position,transform.forward ,out hit,0.6f)||levelOne.isInDanger())
 		{
 			//if there is something before it turn
 			levelOne.TurnState();

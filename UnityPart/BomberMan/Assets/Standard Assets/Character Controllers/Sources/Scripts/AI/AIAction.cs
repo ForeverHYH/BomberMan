@@ -5,9 +5,11 @@ public class AIAction : MonoBehaviour {
 
 	public int speed;
 	public int life;
+	private int[] angles;
 	// Use this for initialization
 	void Start () {
 		transform.Rotate (0,0,0);
+		angles = new int[]{-90,90,-90,90};
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class AIAction : MonoBehaviour {
 		Debug.Log ("I'm turning!");
 		//This function is excute turn of robot, just turn pai/4
 
-		transform.localEulerAngles = new Vector3(0f, transform.localEulerAngles.y +(float)Random.Range (-90, 90) , 0f);
+		transform.localEulerAngles = new Vector3(0f, transform.localEulerAngles.y - angles[Random.Range (0, 3)] , 0f);
 	}
 	
 	public void ShotState()

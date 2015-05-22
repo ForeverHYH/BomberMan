@@ -40,7 +40,7 @@ public class MouseLook : MonoBehaviour {
 	
 	public Material changeMaterail;
 
-	private float xrayDistance = 2.0f;
+	private float xrayDistance = 5.0f;
 	private int explosiveSpeed = 1;
 	private int maxCanonNumber = 3;
 	private int fireDistance = 2;
@@ -58,12 +58,13 @@ public class MouseLook : MonoBehaviour {
 				//打印射线碰撞到的对象的名称  
 				//Debug.Log("I'm looking at"+ m_rayhit.collider.transform.name);
 				//m_rayhit.collider.transform.renderer.material.shader = Shader.Find (" Glossy");
-				if(m_rayhit.collider.transform.name.Equals("Canon")&&m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0)
+				if(m_rayhit.collider.transform.name.Equals("Canon")&&m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0&&m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove)
 				{
-					int xDistance = (int)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.x-(int)System.Math.Round(gameObject.transform.position.x),2); //round is 4 down 6 up 5 to double
-					int zDistance = (int)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.z-(int)System.Math.Round(gameObject.transform.position.z),2);
+					float xDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.x-gameObject.transform.position.x,2); //round is 4 down 6 up 5 to double
+					float zDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.z-gameObject.transform.position.z,2);
 					int firePowDistance = (int)System.Math.Pow(fireDistance,2);
-					if(xDistance+zDistance<=firePowDistance*2 && xDistance<=firePowDistance && zDistance<=firePowDistance && xDistance+zDistance>=1)
+					//Debug.Log(xDistance+zDistance);
+					if(xDistance+zDistance<=firePowDistance*2 && xDistance<=firePowDistance && zDistance<=firePowDistance && xDistance+zDistance>=0.5f)
 					{
 						m_rayhit.collider.gameObject.GetComponent<FloorCube>().ChangeMaterial();
 
