@@ -23,7 +23,7 @@ public class LevelThreeStateMachine : MonoBehaviour {
 		}
 		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,1)&&hit.collider.transform.name.Equals("steel")||levelThree.isInDanger())
 		{
-			levelThree.TurnState();
+			levelThree.TurnState(false);
 		}
 		else if(levelThree.isDead())
 		{

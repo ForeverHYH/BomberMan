@@ -25,6 +25,9 @@ public class FloorCube : MonoBehaviour {
 			child.gameObject.particleSystem.Stop();
 
 			transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
+
+			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
+			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
 		}
 
 	}
@@ -35,12 +38,12 @@ public class FloorCube : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if(Physics.Raycast(transform.position,transform.forward ,out hit,2))
+		if(Physics.Raycast(transform.position,transform.forward ,out hit,1.5f))
 		{
 			canMove = false;
 			Debug.DrawLine(transform.position,hit.point,Color.red);
 		}
-		if(!Physics.Raycast(transform.position,transform.forward ,out hit,2))
+		else
 		{
 			canMove = true;
 		}

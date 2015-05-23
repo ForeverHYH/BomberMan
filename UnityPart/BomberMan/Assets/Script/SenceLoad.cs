@@ -108,7 +108,7 @@ public class SenceLoad : MonoBehaviour {
 			
 			m_readItem.name = current_name.InnerText;
 			
-			Debug.Log("要读取的数据：" + m_readItem.name + "位置：" + m_readItem.transform.position.x + "," + m_readItem.transform.position.y);
+			//Debug.Log("要读取的数据：" + m_readItem.name + "位置：" + m_readItem.transform.position.x + "," + m_readItem.transform.position.y);
 			
 			//m_Items.Add(m_readItem);
 		}

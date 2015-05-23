@@ -1,8 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../mygame/Assets/script/PauseUI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/LevelOneStateMachine.cs">
     <Files>
-      <File FileName="../../../mygame/Assets/script/PauseUI.cs" Line="4" Column="39" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/AIAction.cs" Line="70" Column="3" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs" Line="65" Column="132" />
+      <File FileName="Assets/Script/SenceLoad.cs" Line="111" Column="6" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/AI/LevelOneStateMachine.cs" Line="80" Column="20" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/FloorCube.cs" Line="86" Column="18" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/WallCube.cs" Line="28" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
