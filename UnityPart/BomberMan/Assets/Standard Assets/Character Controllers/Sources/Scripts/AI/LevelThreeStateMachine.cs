@@ -19,7 +19,7 @@ public class LevelThreeStateMachine : MonoBehaviour {
 		}
 		if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,1)&&hit.collider.transform.name.Equals("wall")&& canonID == -1)
 		{
-			levelThree.ShotState();
+			levelThree.ShotState(0,0);
 		}
 		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,1)&&hit.collider.transform.name.Equals("steel")||levelThree.isInDanger())
 		{

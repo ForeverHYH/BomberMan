@@ -87,6 +87,7 @@ public class FloorCube : MonoBehaviour {
 				gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
 				gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
 				SendMessagetoCharactor();
+				SendMessagetoRobot();
 			}
 			timer++; 
 			if(isMoving == 0){
@@ -136,5 +137,15 @@ public class FloorCube : MonoBehaviour {
 						Debug.Log ("cannot find");
 				}
 
+	}
+
+	void SendMessagetoRobot(){
+		GameObject charactor = GameObject.Find ("sturdyRobot");
+		if (charactor) {
+			charactor.SendMessage ("getMessage", gameObject);
+		} else {
+			Debug.Log ("cannot find");
+		}
+		
 	}
 }

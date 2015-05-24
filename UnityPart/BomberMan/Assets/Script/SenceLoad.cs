@@ -20,6 +20,8 @@ public class SenceLoad : MonoBehaviour {
 	public GameObject m_ItemSturdyRobot;
 	public GameObject m_ItemSteel;
 	public GameObject m_ItemFastRobot;
+
+	private int timer;
 	// Use this for initialization
 	void Start () {
 		m_Items = new ArrayList();
@@ -28,11 +30,25 @@ public class SenceLoad : MonoBehaviour {
 		m_readLevel = "1";
 		m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
 		ReadFromXml (m_sXmlPath);
+
+		timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (timer == 100) {
+			GameObject.Find ("Ceiling cube").SetActive (false);
+			//timer=0;
+		}
+		if (timer == 200) {
+			CleanObjects();
+			m_readLevel = "2";
+			m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
+			ReadFromXml (m_sXmlPath);		
+		}
+		timer++;
+		//GameObject.Find ("Ground cube").SetActive (false);
+		//GameObject.Find ("CanonBorn").SetActive (false);
 	}
 
 	void ReadFromXml(string xmlPath)

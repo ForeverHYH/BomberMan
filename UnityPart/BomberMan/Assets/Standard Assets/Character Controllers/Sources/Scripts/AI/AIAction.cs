@@ -7,10 +7,13 @@ public class AIAction : MonoBehaviour {
 	public int life;
 	private int[] angles;
 	private RaycastHit hit;
+	private ArrayList canonList = new ArrayList();
+	private int maxCanonNumber;
 	// Use this for initialization
 	void Start () {
 		transform.Rotate (0,0,0);
 		angles = new int[]{-90,90,-90,90};
+		maxCanonNumber = 1;
 	}
 	
 	// Update is called once per frame
@@ -44,11 +47,37 @@ public class AIAction : MonoBehaviour {
 		else transform.localEulerAngles = new Vector3(0f, transform.localEulerAngles.y - angles[Random.Range (0, 3)] , 0f);
 	}
 	
-	public void ShotState()
+	public void ShotState(int x,int z)
 	{
 		//This function is excute shot of robot, get back one cube when shot
+		object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+		foreach(Transform tempObjects in gameObjects)
+		{
+			if(tempObjects.transform!=null)
+			{
+				if(tempObjects.name=="Canon")
+				{
+					if((int)tempObjects.transform.position.x==x && (int)tempObjects.transform.position.z==z)
+					{
+						tempObjects.GetComponent<FloorCube>().ChangeMaterial();
+						//Debug.Log("x is:" + x + "z is:" + z);
+						if(tempObjects.GetComponent<FloorCube>().isMoving==0&&tempObjects.GetComponent<FloorCube>().canMove)
+						{
+							if(canonList.Count<maxCanonNumber)
+							{
+								int tempCanonID = (int)(tempObjects.transform.position.x*100 + tempObjects.transform.position.z);
+								canonList.Add(tempCanonID); // add canon
+								//Debug.Log("cannon ID is: " + tempCanonID);
+								tempObjects.GetComponent<FloorCube>().moving(1.0f,1);
+							}
+						}
+					}
+				}
+			}
+		}
 	}
-	
+
+
 	public void CatchState()
 	{
 		//This function is excute catch of robot, when robot 'feel' 
@@ -65,7 +94,6 @@ public class AIAction : MonoBehaviour {
 	
 	public bool isDead()
 	{
-
 		return false;
 	}
 
@@ -96,5 +124,23 @@ public class AIAction : MonoBehaviour {
 	{
 		//get player position
 		return true;
+	}
+
+	void getMessage(GameObject floorCube)
+	{
+		//Debug.Log ("position is" + floorCube.transform.position.x + "and" + floorCube.transform.position.z);
+		int currentCanonID = (int)(floorCube.transform.position.x * 100 + floorCube.transform.position.z);
+		if (canonList.Contains (currentCanonID)) {
+			canonList.Remove(currentCanonID);
+			
+		}
+	}
+	
+	public bool Canshot()
+	{
+		if (canonList.Count == 0)
+						return true;
+				else
+						return false;
 	}
 }
