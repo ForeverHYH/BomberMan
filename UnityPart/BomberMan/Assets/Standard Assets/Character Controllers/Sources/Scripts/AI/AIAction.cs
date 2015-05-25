@@ -69,6 +69,7 @@ public class AIAction : MonoBehaviour {
 								canonList.Add(tempCanonID); // add canon
 								//Debug.Log("cannon ID is: " + tempCanonID);
 								tempObjects.GetComponent<FloorCube>().moving(1.0f,1);
+								Debug.Log("add" + tempCanonID + "x is" +x+"z is "+z );
 							}
 						}
 					}
@@ -132,8 +133,10 @@ public class AIAction : MonoBehaviour {
 		int currentCanonID = (int)(floorCube.transform.position.x * 100 + floorCube.transform.position.z);
 		if (canonList.Contains (currentCanonID)) {
 			canonList.Remove(currentCanonID);
+			//Debug.Log("remove success" + currentCanonID);
 			
 		}
+		else Debug.Log("remove failed"+currentCanonID);
 	}
 	
 	public bool Canshot()

@@ -27,7 +27,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 	void Update () {
 		if(levelOne.isInDanger())
 		{
-			Debug.Log("danger!");
+			//Debug.Log("danger!");
 			levelOne.StopState();
 			levelOne.TurnState(true);
 			levelOne.TurnState(true);
@@ -77,7 +77,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 
 	void OnParticleCollision (GameObject other)
 	{
-		Debug.Log ("Dead!");
+		//Debug.Log ("Dead!");
 		levelOne.DeadState ();
 	}
 

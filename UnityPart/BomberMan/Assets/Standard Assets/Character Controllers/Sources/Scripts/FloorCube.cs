@@ -41,7 +41,7 @@ public class FloorCube : MonoBehaviour {
 		if(Physics.Raycast(transform.position,transform.forward ,out hit,1.5f))
 		{
 			canMove = false;
-			Debug.DrawLine(transform.position,hit.point,Color.red);
+			//Debug.DrawLine(transform.position,hit.point,Color.red);
 		}
 		else
 		{

@@ -24,7 +24,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 	void Update () {
 		if(levelTwo.isInDanger())
 		{
-			Debug.Log("danger!");
+			//Debug.Log("danger!");
 			levelTwo.StopState();
 			levelTwo.TurnState(true);
 			levelTwo.TurnState(true);
@@ -41,6 +41,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 		}
 		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,2)&&hit.collider.transform.name.Equals("wall")&&levelTwo.Canshot())
 		{
+			Debug.DrawLine(transform.position,hit.point,Color.red);
 			int canonX = (int)hit.collider.transform.position.x;
 			int canonZ = (int)hit.collider.transform.position.z;
 			int robotX = (int)transform.position.x;
@@ -52,7 +53,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			{
 				targetX = canonX;
 				targetZ = (int)((canonZ+robotZ+1)/2);
-				Debug.Log("robot x is:"+ robotX + "target z is:"+ targetZ);
+				//Debug.Log("robot x is:"+ robotX + "target z is:"+ targetZ);
 				levelTwo.ShotState(targetX,targetZ);
 			}
 			else if(canonZ==robotZ)
@@ -82,7 +83,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 	void OnParticleCollision (GameObject other)
 	{
-		Debug.Log ("Dead!");
+		//Debug.Log ("Dead!");
 		levelTwo.DeadState ();
 	}
 }

@@ -59,7 +59,7 @@ public class MouseLook : MonoBehaviour {
 
 				if(m_rayhit.collider.transform.name.Equals("Canon"))
 				{
-					Debug.Log(m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove);
+					//Debug.Log(m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove);
 					if(m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0 && m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove)
 					{
 						float xDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.x-gameObject.transform.position.x,2); //round is 4 down 6 up 5 to double
@@ -75,7 +75,7 @@ public class MouseLook : MonoBehaviour {
 								{
 									int tempCanonID = (int)(m_rayhit.collider.gameObject.transform.position.x*100 + m_rayhit.collider.gameObject.transform.position.z);
 									canonList.Add(tempCanonID); // add canon
-									Debug.Log("cannon ID is: " + tempCanonID);
+									//Debug.Log("cannon ID is: " + tempCanonID);
 									m_rayhit.collider.gameObject.GetComponent<FloorCube>().moving(xrayDistance,explosiveSpeed);
 								}
 							}

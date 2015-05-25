@@ -27,7 +27,7 @@ public class SenceLoad : MonoBehaviour {
 		m_Items = new ArrayList();
 		m_readItem = null;
 
-		m_readLevel = "1";
+		m_readLevel = "2";
 		m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
 		ReadFromXml (m_sXmlPath);
 
@@ -40,12 +40,12 @@ public class SenceLoad : MonoBehaviour {
 			GameObject.Find ("Ceiling cube").SetActive (false);
 			//timer=0;
 		}
-		if (timer == 200) {
-			CleanObjects();
-			m_readLevel = "2";
-			m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
-			ReadFromXml (m_sXmlPath);		
-		}
+//		if (timer == 200) {
+//			CleanObjects();
+//			m_readLevel = "2";
+//			m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
+//			ReadFromXml (m_sXmlPath);		
+//		}
 		timer++;
 		//GameObject.Find ("Ground cube").SetActive (false);
 		//GameObject.Find ("CanonBorn").SetActive (false);
@@ -55,7 +55,7 @@ public class SenceLoad : MonoBehaviour {
 	{
 		if (File.Exists(xmlPath))
 		{
-			Debug.Log("Read Start!");
+			//Debug.Log("Read Start!");
 			m_Items.Clear();
 			CleanObjects();
 			m_readItem = null;
