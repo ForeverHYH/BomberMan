@@ -30,7 +30,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			levelTwo.TurnState(true);
 		}
 
-		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.65f)&&restTimer<=restTime)
+		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.55f)&&restTimer<=restTime)
 		{
 			levelTwo.StopState();
 			if(restTimer==restTime){
@@ -47,20 +47,22 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			int robotZ = (int)transform.position.z;
 			int targetX;
 			int targetZ;
-
+			Debug.Log(canonX + "and" + canonZ + "with" + robotX + "and" + robotZ);
 			if(canonX==robotX)
 			{
 				targetX = canonX;
 				targetZ = (int)((canonZ+robotZ+1)/2);
 				Debug.Log("robot x is:"+ robotX + "target z is:"+ targetZ);
+				levelTwo.ShotState(targetX,targetZ);
 			}
-			else
+			else if(canonZ==robotZ)
 			{
 				targetZ = canonZ;
 				targetX = (int)((canonX+robotX+1)/2);
+				levelTwo.ShotState(targetX,targetZ);
 			}
 			//levelTwo.StopState();
-			levelTwo.ShotState(targetX,targetZ);
+
 		}
 		else if(levelTwo.isDead())
 		{

@@ -124,7 +124,7 @@ public class MouseLook : MonoBehaviour {
 
 	void getMessage(GameObject floorCube)
 	{
-		Debug.Log ("position is" + floorCube.transform.position.x + "and" + floorCube.transform.position.z);
+		//Debug.Log ("position is" + floorCube.transform.position.x + "and" + floorCube.transform.position.z);
 		int currentCanonID = (int)(floorCube.transform.position.x * 100 + floorCube.transform.position.z);
 		if (canonList.Contains (currentCanonID)) {
 			canonList.Remove(currentCanonID);
