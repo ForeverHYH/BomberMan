@@ -5,14 +5,16 @@ ModelImporter:
   fileIDToRecycleName:
     100000: back
     100002: //RootNode
-    100004: left
-    100006: pCube1
-    100008: xuezi:polySurface1
+    100004: group2
+    100006: left
+    100008: pCube1
+    100010: xuezi:polySurface1
     400000: back
     400002: //RootNode
-    400004: left
-    400006: pCube1
-    400008: xuezi:polySurface1
+    400004: group2
+    400006: left
+    400008: pCube1
+    400010: xuezi:polySurface1
     2300000: pCube1
     2300002: xuezi:polySurface1
     3300000: pCube1
@@ -23,7 +25,7 @@ ModelImporter:
     9500000: //RootNode
   materials:
     importMaterials: 1
-    materialName: 1
+    materialName: 0
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
@@ -41,14 +43,14 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 45
+      lastFrame: 330
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -65,11 +67,13 @@ ModelImporter:
         weight: 1
       - path: back
         weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pCube1
+        weight: 1
+      - path: group2/xuezi:polySurface1
+        weight: 1
       - path: left
-        weight: 1
-      - path: pCube1
-        weight: 1
-      - path: xuezi:polySurface1
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -93,7 +97,7 @@ ModelImporter:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

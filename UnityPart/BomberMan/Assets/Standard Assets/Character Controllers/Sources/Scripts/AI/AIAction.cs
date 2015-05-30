@@ -7,15 +7,26 @@ public class AIAction : MonoBehaviour {
 	public int life;
 	private int[] angles;
 	private RaycastHit hit;
-	private ArrayList canonList = new ArrayList();
+	private ArrayList robotCanonList = new ArrayList();
 	private int maxCanonNumber;
+	private int[,] floorGrid = new int[15, 15];
+	private ArrayList pathIDList = new ArrayList();
 	// Use this for initialization
 	void Start () {
 		transform.Rotate (0,0,0);
 		angles = new int[]{-90,90,-90,90};
 		maxCanonNumber = 1;
+		initFloorGrid ();
 	}
-	
+
+	void initFloorGrid(){
+		System.Array.Clear (floorGrid,0,floorGrid.Length);
+		GameObject charactor = GameObject.Find ("First Person Controller");
+		foreach(Transform j in charactor.GetComponent<SenceLoad>().HinderList)
+		{
+			floorGrid[(int)j.position.x,(int)j.position.z] = -1;
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		
@@ -63,14 +74,7 @@ public class AIAction : MonoBehaviour {
 						//Debug.Log("x is:" + x + "z is:" + z);
 						if(tempObjects.GetComponent<FloorCube>().isMoving==0&&tempObjects.GetComponent<FloorCube>().canMove)
 						{
-							if(canonList.Count<maxCanonNumber)
-							{
-								int tempCanonID = (int)(tempObjects.transform.position.x*100 + tempObjects.transform.position.z);
-								canonList.Add(tempCanonID); // add canon
-								//Debug.Log("cannon ID is: " + tempCanonID);
-								tempObjects.GetComponent<FloorCube>().moving(1.0f,1);
-								Debug.Log("add" + tempCanonID + "x is" +x+"z is "+z );
-							}
+							tempObjects.GetComponent<FloorCube>().moving(1.0f,1);
 						}
 					}
 				}
@@ -79,10 +83,54 @@ public class AIAction : MonoBehaviour {
 	}
 
 
-	public void CatchState()
+	public int CatchState()
 	{
 		//This function is excute catch of robot, when robot 'feel' 
 		//which means the distance is at least 3 cube, they will "Find Way" and catch player
+		initFloorGrid ();
+		GameObject charactor = GameObject.Find ("First Person Controller");
+		PathFind (charactor);
+		if(pathIDList.Count>=4)
+		{
+			int positionX = (int)pathIDList[pathIDList.Count-3];
+			int positionY = (int)pathIDList[pathIDList.Count-4];
+			Transform tempCanon = null;
+			
+			object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+			foreach(Transform tempObjects in gameObjects)
+			{
+				if(tempObjects!=null)
+				{
+					if(tempObjects.name=="Canon")
+					{
+						if((int)tempObjects.transform.position.x==positionX && (int)tempObjects.transform.position.z==positionY)
+						{
+							tempCanon = tempObjects;
+						}
+					}
+				}
+			}
+			
+			if(Vector3.Dot(transform.forward, tempCanon.transform.position)<0)
+			{
+				return 2;
+			}
+			else if(Vector3.Cross(transform.forward, tempCanon.transform.position).y>0)
+			{
+				return 1;
+			}
+			else if(Vector3.Cross(transform.forward, tempCanon.transform.position).y<0)
+			{
+				return 3;
+			}
+			else
+			{
+				return 0;
+			}
+			return 4;
+		}
+		return -1;
+
 	}
 	
 	public void DeadState()
@@ -93,21 +141,64 @@ public class AIAction : MonoBehaviour {
 		//play dead animation.
 	}
 	
-	public bool isDead()
+	public void PathFind(GameObject goalObject)
 	{
-		return false;
+		pathIDList.Clear ();
+		//find path, maybe return next point or some thing else
+		int transX = System.Convert.ToInt32(transform.position.x);
+		int transZ = System.Convert.ToInt32(transform.position.z);
+		int goalX = System.Convert.ToInt32(goalObject.transform.position.x);
+		int goalZ = System.Convert.ToInt32(goalObject.transform.position.z);
+		FloodFill (transX,transZ,goalX,goalZ,1);
+		FloodPath (goalX, goalZ, transX, transZ);
+		Debug.Log ("list count is:"+pathIDList.Count);
 	}
 
-	public void Move()
+	void FloodFill(int x, int y,int goalX, int goalY, int tempTag)
 	{
-		//move might be use in walkstate and catch state
+		if(x==goalX&&y==goalY)
+		{
+			floorGrid[x,y] = tempTag;
+		}
+		else if(x>=0 && x<15 && y>=0 && y<15 && floorGrid[x,y]!=-1 && tempTag<=8 )
+		{
+			if(floorGrid[x,y]<tempTag && floorGrid[x,y]!=0){}
+			else floorGrid[x,y] = tempTag;
+			FloodFill(x+1,y,  goalX,goalY,tempTag+1);
+			FloodFill(x-1,y,  goalX,goalY,tempTag+1);
+			FloodFill(x,  y+1,goalX,goalY,tempTag+1);
+			FloodFill(x,  y-1,goalX,goalY,tempTag+1);
+		}
 	}
-	
-	public void PathFind()
+
+	void FloodPath(int x, int y,int orignalX, int orignalY)
 	{
-		//find path, maybe return next point or some thing else
+		if(floorGrid[x+1,y] == floorGrid[x,y]-1)
+		{
+			pathIDList.Add(x+1);
+			pathIDList.Add(y);
+			FloodPath(x+1,y,orignalX,orignalY);
+		}
+		else if(floorGrid[x-1,y] == floorGrid[x,y]-1)
+		{
+			pathIDList.Add(x-1);
+			pathIDList.Add(y);
+			FloodPath(x-1,y,orignalX,orignalY);
+		}
+		else if(floorGrid[x,y+1] == floorGrid[x,y]-1)
+		{
+			pathIDList.Add(x);
+			pathIDList.Add(y+1);
+			FloodPath(x,y+1,orignalX,orignalY);
+		}
+		else if(floorGrid[x,y-1] == floorGrid[x,y]-1)
+		{
+			pathIDList.Add(x);
+			pathIDList.Add(y-1);
+			FloodPath(x,y-1,orignalX,orignalY);
+		}
 	}
-	
+
 	public bool isInDanger ()
 	{
 		if (Physics.Raycast(transform.position,transform.forward ,out hit,2f)) 
@@ -123,27 +214,23 @@ public class AIAction : MonoBehaviour {
 	
 	public bool isNear()
 	{
-		//get player position
-		return true;
+		GameObject charactor = GameObject.Find ("First Person Controller");
+		int transX = System.Convert.ToInt32(transform.position.x);
+		int transZ = System.Convert.ToInt32(transform.position.z);
+		int goalX = System.Convert.ToInt32(charactor.transform.position.x);
+		int goalZ = System.Convert.ToInt32(charactor.transform.position.z);
+
+		int xPowDistance = (int)System.Math.Pow (transX-goalX,2);
+		int zPowDistance = (int)System.Math.Pow (transZ-goalZ,2);
+
+		if(xPowDistance+zPowDistance<=28)
+		{
+			Debug.Log("Near!");
+			return true;
+		}
+		else return false;
 	}
 
-	void getMessage(GameObject floorCube)
-	{
-		//Debug.Log ("position is" + floorCube.transform.position.x + "and" + floorCube.transform.position.z);
-		int currentCanonID = (int)(floorCube.transform.position.x * 100 + floorCube.transform.position.z);
-		if (canonList.Contains (currentCanonID)) {
-			canonList.Remove(currentCanonID);
-			//Debug.Log("remove success" + currentCanonID);
-			
-		}
-		else Debug.Log("remove failed"+currentCanonID);
-	}
-	
-	public bool Canshot()
-	{
-		if (canonList.Count == 0)
-						return true;
-				else
-						return false;
-	}
+
+
 }

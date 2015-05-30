@@ -42,15 +42,18 @@ public class MouseLook : MonoBehaviour {
 
 	private float xrayDistance = 5.0f;
 	private int explosiveSpeed = 1;
-	private int maxCanonNumber = 3;
+	private int maxCanonNumber = 2;
 	private int fireDistance = 2;
 	private ArrayList canonList = new ArrayList();
+	public bool couldClicke;
 
 	void Update ()
 	{
+
 		//Input.GetMouseButtonDown (0)
-		if (true) 
+		if (couldClicke) 
 		{
+			//Debug.Log ((int)transform.position.x +"and"+ (int)transform.position.z);
 			m_ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 			if (Physics.Raycast(m_ray,out m_rayhit))
@@ -59,23 +62,22 @@ public class MouseLook : MonoBehaviour {
 
 				if(m_rayhit.collider.transform.name.Equals("Canon"))
 				{
-					//Debug.Log(m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove);
 					if(m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0 && m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove)
 					{
 						float xDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.x-gameObject.transform.position.x,2); //round is 4 down 6 up 5 to double
 						float zDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.z-gameObject.transform.position.z,2);
 						int firePowDistance = (int)System.Math.Pow(fireDistance,2);
-						//Debug.Log(xDistance+zDistance);
 						if(xDistance+zDistance<=firePowDistance*2 && xDistance<=firePowDistance && zDistance<=firePowDistance && xDistance+zDistance>=0.5f)
 						{
 							m_rayhit.collider.gameObject.GetComponent<FloorCube>().ChangeMaterial();
-							
-							if(Input.GetMouseButtonDown (0)){
+
+							if(Input.GetMouseButtonUp (0)){
+								Debug.Log (canonList.Count);
 								if(canonList.Count<maxCanonNumber)
 								{
-									int tempCanonID = (int)(m_rayhit.collider.gameObject.transform.position.x*100 + m_rayhit.collider.gameObject.transform.position.z);
-									canonList.Add(tempCanonID); // add canon
+									canonList.Add(m_rayhit.collider.gameObject.transform); // add canon
 									//Debug.Log("cannon ID is: " + tempCanonID);
+									//Debug.Log("add success:"+canonList.Count);
 									m_rayhit.collider.gameObject.GetComponent<FloorCube>().moving(xrayDistance,explosiveSpeed);
 								}
 							}
@@ -85,6 +87,7 @@ public class MouseLook : MonoBehaviour {
 
 			}
 		}
+
 
 		if (axes == RotationAxes.MouseXAndY)
 		{
@@ -113,22 +116,16 @@ public class MouseLook : MonoBehaviour {
 		// Make the rigid body not change rotation
 		if (GetComponent<Rigidbody>())
 			GetComponent<Rigidbody>().freezeRotation = true;
-		canonList = new ArrayList();
 	}
 
-//	void OnTriggerExit( Collider other )
-//	{
-//		Debug.Log ("hahahaha");
-//		Debug.Log("collider thing is :" + other.gameObject.name);
-//	}
-
-	void getMessage(GameObject floorCube)
+	public void getMessage(GameObject floorCube)
 	{
-		//Debug.Log ("position is" + floorCube.transform.position.x + "and" + floorCube.transform.position.z);
-		int currentCanonID = (int)(floorCube.transform.position.x * 100 + floorCube.transform.position.z);
-		if (canonList.Contains (currentCanonID)) {
-			canonList.Remove(currentCanonID);
+		Debug.Log (canonList.Count);
+		if (canonList.Contains (floorCube.transform)) {
+			canonList.Remove(floorCube.transform);
+			//Debug.Log("success"+canonList.Count);
 
 		}
+		else Debug.Log("unseccess");
 	}
 }

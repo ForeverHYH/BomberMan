@@ -9,25 +9,40 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 	private int restTimer;
 	private int restTime;
-
+	private int shotTimer;
+	private int shotTime;
+	private bool isCollisiontoRobot;
+	private bool hasTurn;
 	void Awake() {
 		levelTwo = GetComponent<AIAction> ();
 	}
 
-	// Use this for initialization
 	void Start () {
 		restTime = 20;
 		restTimer = 0;
+		shotTime = 50;
+		shotTimer = 0;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(levelTwo.isInDanger())
 		{
-			//Debug.Log("danger!");
 			levelTwo.StopState();
 			levelTwo.TurnState(true);
 			levelTwo.TurnState(true);
+		}
+
+		else if(isCollisiontoRobot&&restTimer<=restTime&&!hasTurn)
+		{
+			levelTwo.StopState();
+			if(restTimer==restTime){
+				levelTwo.TurnState(true);
+				levelTwo.TurnState(true);
+				hasTurn=true;
+				isCollisiontoRobot = false;
+				restTimer = 0;
+			}
+			else restTimer++;
 		}
 
 		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.55f)&&restTimer<=restTime)
@@ -39,8 +54,10 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			}
 			else restTimer++;
 		}
-		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,2)&&hit.collider.transform.name.Equals("wall")&&levelTwo.Canshot())
+
+		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,2)&&hit.collider.transform.name.Equals("wall")&&shotTimer>=shotTime)
 		{
+			shotTimer=0;
 			Debug.DrawLine(transform.position,hit.point,Color.red);
 			int canonX = (int)hit.collider.transform.position.x;
 			int canonZ = (int)hit.collider.transform.position.z;
@@ -48,12 +65,10 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			int robotZ = (int)transform.position.z;
 			int targetX;
 			int targetZ;
-			Debug.Log(canonX + "and" + canonZ + "with" + robotX + "and" + robotZ);
 			if(canonX==robotX)
 			{
 				targetX = canonX;
 				targetZ = (int)((canonZ+robotZ+1)/2);
-				//Debug.Log("robot x is:"+ robotX + "target z is:"+ targetZ);
 				levelTwo.ShotState(targetX,targetZ);
 			}
 			else if(canonZ==robotZ)
@@ -62,28 +77,29 @@ public class LevelTwoStateMachine : MonoBehaviour {
 				targetX = (int)((canonX+robotX+1)/2);
 				levelTwo.ShotState(targetX,targetZ);
 			}
-			//levelTwo.StopState();
+		}
 
-		}
-		else if(levelTwo.isDead())
-		{
-			levelTwo.DeadState();
-		}
 		else
 		{
 			levelTwo.WalkState();
+			hasTurn = false;
 		}
+		shotTimer++;
 
-	}
-
-	void addCanonID()
-	{
 
 	}
 
 	void OnParticleCollision (GameObject other)
 	{
-		//Debug.Log ("Dead!");
 		levelTwo.DeadState ();
 	}
+
+	void OnCollisionEnter(Collision collisionInfo)
+	{
+		Debug.Log("碰撞到的物体的名字是：" + collisionInfo.gameObject.name);
+		if(collisionInfo.gameObject.name.Equals("sturdyRobot")||collisionInfo.gameObject.name.Equals("fastRobot"))
+		{
+			isCollisiontoRobot = true;
+		}
+	} 
 }

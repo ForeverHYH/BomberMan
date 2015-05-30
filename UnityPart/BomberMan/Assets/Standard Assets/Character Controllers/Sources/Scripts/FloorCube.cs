@@ -28,6 +28,7 @@ public class FloorCube : MonoBehaviour {
 
 			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
 			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
+			//transform.eulerAngles = new Vector3(270,0,0);
 		}
 
 	}
@@ -38,10 +39,9 @@ public class FloorCube : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if(Physics.Raycast(transform.position,transform.forward ,out hit,1.5f))
+		if(isOnCube())
 		{
 			canMove = false;
-			//Debug.DrawLine(transform.position,hit.point,Color.red);
 		}
 		else
 		{
@@ -49,8 +49,9 @@ public class FloorCube : MonoBehaviour {
 		}
 
 		if (isMoving == 1 ) {
-			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.1f);
-			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.2f);
+			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.0749f);
+			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.15f);
+			//transform.eulerAngles = new Vector3(270,0,0);
 			renderer.material = originalMaterail;
 			isChangeMaterail = false;
 			int upTime =50/explosiveSpeed;
@@ -86,8 +87,8 @@ public class FloorCube : MonoBehaviour {
 				isMoving = 0;
 				gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
 				gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
+				//transform.eulerAngles = new Vector3(270,0,0);
 				SendMessagetoCharactor();
-				SendMessagetoRobot();
 			}
 			timer++; 
 			if(isMoving == 0){
@@ -109,19 +110,9 @@ public class FloorCube : MonoBehaviour {
 	}
 
 	public void moving(float xray, int explosive){
-//		if (Physics.Raycast (transform.position, Vector3.up, out hit, 1)) 
-//		{
-//			isMoving = 0;
-//			Debug.Log("NOT MOVING!");
-//		} 
-		//else 
-		//{
-			Debug.Log("MOVING!");
 			isMoving = 1;
 			xrayDistance = xray;
 			explosiveSpeed = explosive;
-		//}
-
 	}
 
 	public void ChangeMaterial(){
@@ -131,21 +122,21 @@ public class FloorCube : MonoBehaviour {
 
 	void SendMessagetoCharactor(){
 		GameObject charactor = GameObject.Find ("First Person Controller");
-		if (charactor) {
-						charactor.SendMessage ("getMessage", gameObject);
-				} else {
-						Debug.Log ("cannot find");
-				}
-
+		charactor.GetComponent<MouseLook> ().getMessage (gameObject);
 	}
 
-	void SendMessagetoRobot(){
-		GameObject charactor = GameObject.Find ("sturdyRobot");
-		if (charactor) {
-			charactor.SendMessage ("getMessage", gameObject);
-		} else {
-			Debug.Log ("cannot find");
+	bool isOnCube(){
+		GameObject charactor = GameObject.Find ("First Person Controller");
+		foreach(Transform j in charactor.GetComponent<SenceLoad>().CreatureList)
+		{
+			if(j.position.x<=gameObject.transform.position.x+0.7f&&j.position.x>=gameObject.transform.position.x-0.7f)
+			{
+				if(j.position.z<=gameObject.transform.position.z+0.7f&&j.position.z>=gameObject.transform.position.z-0.7f)
+				{
+					return true;
+				}
+			}
 		}
-		
+		return false;
 	}
 }

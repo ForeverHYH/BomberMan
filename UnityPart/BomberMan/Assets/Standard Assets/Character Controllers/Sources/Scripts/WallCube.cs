@@ -27,7 +27,7 @@ public class WallCube : MonoBehaviour {
 
 	void OnParticleCollision (GameObject other)
 	{
-		Debug.Log (gameObject.name);
+		//Debug.Log (gameObject.name);
 		isDestory = true;
 	}
 }

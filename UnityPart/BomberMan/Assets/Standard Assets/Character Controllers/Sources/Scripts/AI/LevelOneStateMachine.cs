@@ -8,10 +8,9 @@ public class LevelOneStateMachine : MonoBehaviour {
 	private int restTimer;
 	private int restTime;
 
-	private int slideTimer;
-	private int slideTime;
 	private bool isTurn;
-	// Use this for initialization
+	private bool isCollisiontoRobot;
+
 	void Awake() {
 		levelOne = GetComponent<AIAction> ();
 	}
@@ -19,18 +18,26 @@ public class LevelOneStateMachine : MonoBehaviour {
 	void Start () {
 		restTime = 20;
 		restTimer = 0;
-		slideTimer = 0;
-		slideTime = 20;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(levelOne.isInDanger())
 		{
-			//Debug.Log("danger!");
 			levelOne.StopState();
 			levelOne.TurnState(true);
 			levelOne.TurnState(true);
+		}
+
+		else if(isCollisiontoRobot&&restTimer<=restTime)
+		{
+			levelOne.StopState();
+			if(restTimer==restTime){
+				levelOne.TurnState(true);
+				levelOne.TurnState(true);
+
+				restTimer = 0;
+			}
+			else restTimer++;
 		}
 
 		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.6f)&&restTimer<=restTime)
@@ -42,33 +49,6 @@ public class LevelOneStateMachine : MonoBehaviour {
 			}
 			else restTimer++;
 		}
-
-		// turn in intersection still have smoe problems
-//		else if(!Physics.Raycast(transform.position,transform.forward ,out hit,0.6f)&&!Physics.Raycast(transform.position,transform.right ,out hit,0.6f))
-//		{
-//			if(slideTimer<slideTime){
-//				slideTimer++;
-//				levelOne.WalkState();
-//			}
-//			else if(slideTimer==slideTime){
-//				levelOne.StopState();
-//				levelOne.TurnState(true);
-//				slideTimer++;
-//			}
-//			else if(slideTimer<2*slideTime&&slideTimer>slideTime)
-//			{
-//				slideTimer++;
-//				levelOne.WalkState();
-//			}
-//			else if(slideTimer==2*slideTime){
-//				slideTimer=0;
-//			}
-//		}
-
-		else if(levelOne.isDead())
-		{
-			levelOne.DeadState();
-		}
 		else
 		{
 			levelOne.WalkState();
@@ -77,9 +57,17 @@ public class LevelOneStateMachine : MonoBehaviour {
 
 	void OnParticleCollision (GameObject other)
 	{
-		//Debug.Log ("Dead!");
 		levelOne.DeadState ();
 	}
+
+	void OnCollisionEnter(Collision collisionInfo)
+	{
+		Debug.Log("碰撞到的物体的名字是：" + collisionInfo.gameObject.name);
+		if(collisionInfo.gameObject.name.Equals("sturdyRobot")||collisionInfo.gameObject.name.Equals("fastRobot"))
+		{
+			isCollisiontoRobot = true;
+		}
+	} 
 
 }
 

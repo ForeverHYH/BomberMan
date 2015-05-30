@@ -3,67 +3,32 @@ guid: acfd0f0c00a0ad346839db0427b42479
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: back
-    100002: curveFlameCurly
-    100004: curveHands
-    100006: curveLightningWhite
-    100008: curveLightningWhite1
-    100010: curveLightningWhite10
-    100012: curveLightningWhite2
-    100014: curveLightningWhite3
-    100016: curveLightningWhite4
-    100018: curveLightningWhite5
-    100020: curveLightningWhite6
-    100022: curveLightningWhite7
-    100024: curveLightningWhite8
-    100026: curveLightningWhite9
-    100028: curveNeonBlue
-    100030: group1
-    100032: left
-    100034: //RootNode
-    100036: pCube1
-    100038: pPlane1
-    100040: pPlane2
-    100042: pPlane3
-    400000: back
-    400002: curveFlameCurly
-    400004: curveHands
-    400006: curveLightningWhite
-    400008: curveLightningWhite1
-    400010: curveLightningWhite10
-    400012: curveLightningWhite2
-    400014: curveLightningWhite3
-    400016: curveLightningWhite4
-    400018: curveLightningWhite5
-    400020: curveLightningWhite6
-    400022: curveLightningWhite7
-    400024: curveLightningWhite8
-    400026: curveLightningWhite9
-    400028: curveNeonBlue
-    400030: group1
-    400032: left
-    400034: //RootNode
-    400036: pCube1
-    400038: pPlane1
-    400040: pPlane2
-    400042: pPlane3
-    2300000: pCube1
-    2300002: pPlane1
-    2300004: pPlane2
-    2300006: pPlane3
-    3300000: pCube1
-    3300002: pPlane1
-    3300004: pPlane2
-    3300006: pPlane3
+    100000: group1
+    100002: left
+    100004: //RootNode
+    100006: pPlane1
+    100008: pPlane2
+    100010: pPlane3
+    400000: group1
+    400002: left
+    400004: //RootNode
+    400006: pPlane1
+    400008: pPlane2
+    400010: pPlane3
+    2300000: pPlane1
+    2300002: pPlane2
+    2300004: pPlane3
+    3300000: pPlane1
+    3300002: pPlane2
+    3300004: pPlane3
     4300000: pPlane1
-    4300002: pCube1
-    4300004: pPlane2
-    4300006: pPlane3
+    4300002: pPlane2
+    4300004: pPlane3
     7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
-    materialName: 1
+    materialName: 0
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
@@ -76,7 +41,45 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pPlane1
+        weight: 1
+      - path: group1/pPlane2
+        weight: 1
+      - path: group1/pPlane3
+        weight: 1
+      - path: left
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
