@@ -51,7 +51,7 @@
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\LevelThreeStateMachine.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\AI\levelTwoStateMachine.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\FloorCube.cs" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\LinerTest.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\Loading.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MapCamera.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\NewGame.cs" />
