@@ -13,7 +13,7 @@ public class SenceLoad : MonoBehaviour {
 	private string m_sMyLife;           //我的生命
 	private string m_currentLevel;
 	private string m_readLevel;
-	private string m_toolRate;
+	public string m_toolRate;
 	private string m_visibility;
 
 	public GameObject m_ItemWall;
@@ -26,13 +26,19 @@ public class SenceLoad : MonoBehaviour {
 	public ArrayList CreatureList = new ArrayList();
 	public ArrayList HinderList = new ArrayList();
 
+	public GameObject CeilingCube;
+	public GameObject GroundCube;
+	public GameObject CannonCube;
+
 	// Use this for initialization
 	void Start () {
 		m_Items = new ArrayList();
 		m_readItem = null;
 
+		//m_readLevel = StaticComponents.CURRENT_LEVEL.ToString ();
 		m_readLevel = "3";
 		m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
+		Debug.Log (m_sXmlPath);
 		ReadFromXml (m_sXmlPath);
 
 		timer = 0;
@@ -41,7 +47,11 @@ public class SenceLoad : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (timer == 100) {
-			GameObject.Find ("Ceiling cube").SetActive (false);
+			CeilingCube.SetActive (false);
+			//timer=0;
+		}
+		if (timer == 110) {
+			CeilingCube.SetActive (true);
 			//timer=0;
 		}
 //		if (timer == 200) {
@@ -49,6 +59,17 @@ public class SenceLoad : MonoBehaviour {
 //			m_readLevel = "2";
 //			m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
 //			ReadFromXml (m_sXmlPath);		
+//		}
+//		if(CreatureList.Count==0&&timer>200)
+//		{
+//			CannonCube.SetActive(false);
+//			GroundCube.SetActive (false);
+//		}
+//		if((int)gameObject.transform.position.y < -2)
+//		{
+//			StaticComponents.CURRENT_LEVEL++;
+//			Application.LoadLevel("LoadingScene");
+//
 //		}
 		timer++;
 		//GameObject.Find ("Ground cube").SetActive (false);
@@ -103,7 +124,7 @@ public class SenceLoad : MonoBehaviour {
 			XmlNode position_y = current_node.SelectSingleNode("position_y");
 			
 			Vector3 psition = new Vector3(float.Parse(position_x.InnerText), 1, float.Parse(position_y.InnerText));
-			
+			Vector3 robotPosition = new Vector3(float.Parse(position_x.InnerText), 0.6f, float.Parse(position_y.InnerText));
 			if (current_name.InnerText == "wall")
 			{
 				m_readItem = Instantiate(m_ItemWall, psition, Quaternion.identity) as GameObject;
@@ -111,7 +132,7 @@ public class SenceLoad : MonoBehaviour {
 			
 			else if (current_name.InnerText == "sturdyRobot")
 			{
-				m_readItem = Instantiate(m_ItemSturdyRobot, psition, Quaternion.identity) as GameObject;
+				m_readItem = Instantiate(m_ItemSturdyRobot, robotPosition, Quaternion.identity) as GameObject;
 				CreatureList.Add (m_readItem.transform);
 			}
 			
@@ -123,7 +144,7 @@ public class SenceLoad : MonoBehaviour {
 			
 			else if (current_name.InnerText == "fastRobot")
 			{
-				m_readItem = Instantiate(m_ItemFastRobot, psition, Quaternion.identity) as GameObject;
+				m_readItem = Instantiate(m_ItemFastRobot, robotPosition, Quaternion.identity) as GameObject;
 				CreatureList.Add (m_readItem.transform);
 			}
 			

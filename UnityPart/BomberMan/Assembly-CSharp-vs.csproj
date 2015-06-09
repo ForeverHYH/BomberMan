@@ -46,9 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scenes\NewBehaviourScript.cs" />
+     <Compile Include="Assets\DissolveShader\DemoSzene\Timed.cs" />
+     <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
+     <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
+     <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
      <None Include="Assets\Map\map_1.xml" />
      <None Include="Assets\Map\map_4.xml" />
+     <None Include="Assets\DissolveShader\Readme.txt" />
      <None Include="Assets\Map\map_3.xml" />
      <None Include="Assets\Map\map_2.xml" />
  <Reference Include="Assembly-UnityScript-firstpass">

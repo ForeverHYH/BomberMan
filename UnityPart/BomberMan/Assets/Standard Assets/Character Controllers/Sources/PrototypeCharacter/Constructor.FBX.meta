@@ -129,12 +129,13 @@ ModelImporter:
     7400018: jump_pose
     11100000: //RootNode
     13700000: Bip001 Pelvis
+    13700002: construction_worker
   materials:
     importMaterials: 1
     materialName: 3
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 3
+    legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 

@@ -14,23 +14,27 @@ public class FloorCube : MonoBehaviour {
 
 	public Material changeMaterail;
 	public Material originalMaterail;
-
+	
 	private float xrayDistance = 1.0f;
 	private int explosiveSpeed = 1;   //explosive speed related to time; only take 1, 2, 5
 	// Use this for initialization
+
+	public AudioSource MoveMusic;
+	public AudioSource ShotMusic;
 	void Start () {
 		foreach(Transform child in transform)
 		{
 			child.gameObject.SetActive(false);
-			child.gameObject.particleSystem.Stop();
-
-			transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
-
-			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
-			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
+			if(child.name.Equals("Cube"))
+			{
+				child.gameObject.particleSystem.Stop();
+			}
 			//transform.eulerAngles = new Vector3(270,0,0);
 		}
-
+		transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
+		
+		gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
+		gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
 	}
 	
 	// Update is called once per frame
@@ -49,34 +53,49 @@ public class FloorCube : MonoBehaviour {
 		}
 
 		if (isMoving == 1 ) {
+
 			gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.0749f);
 			gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.15f);
 			//transform.eulerAngles = new Vector3(270,0,0);
 			renderer.material = originalMaterail;
 			isChangeMaterail = false;
 			int upTime =50/explosiveSpeed;
-			if(timer==0) rigidbody.velocity = new Vector3(rigidbody.velocity.x,explosiveSpeed,rigidbody.velocity.z);
+			if(timer==0) 
+			{
+				rigidbody.velocity = new Vector3(rigidbody.velocity.x,explosiveSpeed,rigidbody.velocity.z);
+				MoveMusic.Play();
+			}
 			else if(timer==upTime)
 			{
+				ShotMusic.Play();
 				foreach(Transform child in transform)
 				{
-					child.gameObject.SetActive(true);
-					child.gameObject.particleSystem.startLifetime = xrayDistance/10;      //xrayDistance related to start life time
-					child.gameObject.particleSystem.startSize = 0.5f;
+					if(child.name.Equals("Cube"))
+					{
+						child.gameObject.SetActive(true);
+						child.gameObject.particleSystem.startLifetime = xrayDistance/10;      //xrayDistance related to start life time
+						child.gameObject.particleSystem.startSize = 0.5f;
+						
+						//child.gameObject.particleSystem.maxParticles = 20;
+						//child.gameObject.particleSystem.startSpeed = 15;
+						child.gameObject.particleSystem.Play();
+					}
 
-					//child.gameObject.particleSystem.maxParticles = 20;
-					//child.gameObject.particleSystem.startSpeed = 15;
-					child.gameObject.particleSystem.Play();
 				}
 				rigidbody.velocity = new Vector3(0,0,0);
 
 			}
 			else if(timer==upTime+100) 
 			{
+				ShotMusic.Stop();
+				MoveMusic.Play();
 				foreach(Transform child in transform)
 				{
-					child.gameObject.SetActive(false);
-					child.gameObject.particleSystem.Stop();
+					if(child.name.Equals("Cube"))
+					{
+						child.gameObject.SetActive(false);
+						child.gameObject.particleSystem.Stop();
+					}
 				}
 				rigidbody.velocity = new Vector3(0,-explosiveSpeed,0);
 			}
@@ -85,6 +104,13 @@ public class FloorCube : MonoBehaviour {
 				rigidbody.velocity = new Vector3(0,0,0);
 				transform.localPosition = new Vector3(transform.localPosition.x,0,transform.localPosition.z);
 				isMoving = 0;
+				foreach(Transform child in transform)
+				{
+					if(!child.name.Equals("Cube"))
+					{
+						child.gameObject.SetActive(false);
+					}
+				}
 				gameObject.GetComponent<BoxCollider>().center = new Vector3(0f,0f,0.05f);
 				gameObject.GetComponent<BoxCollider>().size = new Vector3(0.1f,0.1f,0.1f);
 				//transform.eulerAngles = new Vector3(270,0,0);
@@ -111,6 +137,13 @@ public class FloorCube : MonoBehaviour {
 
 	public void moving(float xray, int explosive){
 			isMoving = 1;
+			foreach(Transform child in transform)
+			{
+				if(!child.name.Equals("Cube"))
+				{
+					child.gameObject.SetActive(true);
+				}
+			}
 			xrayDistance = xray;
 			explosiveSpeed = explosive;
 	}

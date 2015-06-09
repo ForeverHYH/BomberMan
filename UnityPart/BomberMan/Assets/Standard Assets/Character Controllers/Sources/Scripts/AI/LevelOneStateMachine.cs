@@ -11,6 +11,8 @@ public class LevelOneStateMachine : MonoBehaviour {
 	private bool isTurn;
 	private bool isCollisiontoRobot;
 
+	//private Animator robotAnimation;
+
 	void Awake() {
 		levelOne = GetComponent<AIAction> ();
 	}
@@ -18,12 +20,14 @@ public class LevelOneStateMachine : MonoBehaviour {
 	void Start () {
 		restTime = 20;
 		restTimer = 0;
+		//robotAnimation = GetComponent<Animation> ();
 	}
 
 	void Update () {
 		if(levelOne.isInDanger())
 		{
 			levelOne.StopState();
+			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
 			levelOne.TurnState(true);
 			levelOne.TurnState(true);
 		}
@@ -31,6 +35,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 		else if(isCollisiontoRobot&&restTimer<=restTime)
 		{
 			levelOne.StopState();
+			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
 			if(restTimer==restTime){
 				levelOne.TurnState(true);
 				levelOne.TurnState(true);
@@ -43,6 +48,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.6f)&&restTimer<=restTime)
 		{
 			levelOne.StopState();
+			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
 			if(restTimer==restTime){
 				levelOne.TurnState(false);
 				restTimer = 0;
@@ -51,6 +57,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 		}
 		else
 		{
+			gameObject.GetComponentInChildren<Animation>().Play("loop_walk_funny");
 			levelOne.WalkState();
 		}
 	}

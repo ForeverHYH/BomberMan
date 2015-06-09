@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{C10E8A9B-8ED3-B159-5A4D-DAACDAAD8E14}</ProjectGuid>
+	<ProjectGuid>{0CB4A01B-F023-99FB-32A2-837D3D37FA5D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,56 +46,25 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\FXMakerModelToPrefabWindow.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\FXMakerSizeConvertWindow.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\FXMakerTextureConvertWindow.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\FXMakerEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\FXMakerOptionEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\FXMakerUndoManager.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\FxmTestSettingEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcAddForceEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcAttachPrefabEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcAttachSoundEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcAutoDeactiveEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcAutoDestructEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcBillboardEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcCurveAnimationEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcDelayActiveEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcDetachParentEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcDuplicatorEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcParticleEmitEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcParticleSpiralEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcParticleSystemEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcRotationEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcSpriteAnimationEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcSpriteFactoryEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcSpriteTextureEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcTilingTextureEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcTrailTextureEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\Inspector\NcUvAnimationEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\sample\FXMakerGizmoEditor.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\sample\FxmDrawGizmo.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\sample\NcCurveAnimationEditorWindow.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\sample\NcEditorWindow.cs" />
-     <Compile Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Editor\sample\NcParticleSystemShurikenEditor.cs" />
-     <None Include="Assets\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Alpha Blended.shader" />
-     <None Include="Assets\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Cutout.shader" />
-     <None Include="Assets\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Additive Tint.shader" />
-     <None Include="Assets\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Additive.shader" />
-     <None Include="Assets\IGSoft_Tools\Readme\Contact.txt" />
-     <None Include="Assets\IGSoft_Tools\Readme\Fx Maker Version.txt" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\ExplosionSourceEditor.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\FracturedChunkEditor.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\FracturedObjectEditor.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\MeshCombiner\Editor\CombinedMeshEditor.cs" />
+     <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
+     <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
+     <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
      <None Include="Assets\Map\map_1.xml" />
-     <None Include="Assets\IGSoft_Tools\Readme\FX Maker VideoGuide Youtube.txt" />
-     <None Include="Assets\IGSoft_Tools\FXMaker\ToolScript\Temp\grayShader.shader" />
+     <None Include="Assets\Ultimate Game Tools\Fracturing\!Readme - v1.03.txt" />
      <None Include="Assets\Map\map_4.xml" />
-     <None Include="Assets\IGSoft_Tools\FXMaker\ToolResource\UnityShader\FXMakerGrayscaleEffect.shader" />
-     <None Include="Assets\IGSoft_Tools\FXMaker\ToolResource\EditorShader\LineColoredBlended.shader" />
+     <None Include="Assets\DissolveShader\Readme.txt" />
      <None Include="Assets\Map\map_3.xml" />
-     <None Include="Assets\IGSoft_Resources\ToolResources\EffectShader\FXMaker_Mask Alpha Blended Tint.shader" />
-     <None Include="Assets\IGSoft_Tools\FXMaker\ToolResource\EditorShader\LineBackground.shader" />
+     <None Include="Assets\Ultimate Game Tools\MeshCombiner\!Readme - v1.01.txt" />
      <None Include="Assets\Map\map_2.xml" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/huyonghao/Desktop/BoomberMan/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/huyonghao/Desktop/BomberMan/UnityPart/BomberMan/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Users/huyonghao/Desktop/BomberMan/UnityPart/BomberMan/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
@@ -109,9 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{8C41EFEF-E02D-71E9-FBDB-FD927941039B}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{B6014D86-6E89-CA34-FA0A-33D6C3F81231}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{476AA63A-677D-C265-6020-2726008E8568}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+      <Project>{A23C9898-3F15-7173-75EB-EE14334A7A3B}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

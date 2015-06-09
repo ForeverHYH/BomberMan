@@ -17,6 +17,7 @@ public class AIAction : MonoBehaviour {
 		angles = new int[]{-90,90,-90,90};
 		maxCanonNumber = 1;
 		initFloorGrid ();
+
 	}
 
 	void initFloorGrid(){
@@ -92,8 +93,8 @@ public class AIAction : MonoBehaviour {
 		PathFind (charactor);
 		if(pathIDList.Count>=4)
 		{
-			int positionX = (int)pathIDList[pathIDList.Count-3];
-			int positionY = (int)pathIDList[pathIDList.Count-4];
+			int positionX = (int)pathIDList[pathIDList.Count-4];
+			int positionY = (int)pathIDList[pathIDList.Count-3];
 			Transform tempCanon = null;
 			
 			object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
@@ -106,38 +107,159 @@ public class AIAction : MonoBehaviour {
 						if((int)tempObjects.transform.position.x==positionX && (int)tempObjects.transform.position.z==positionY)
 						{
 							tempCanon = tempObjects;
+							tempObjects.GetComponent<FloorCube>().ChangeMaterial();
 						}
 					}
 				}
 			}
+			return direction(transform,tempCanon);
+		}
+		else if(pathIDList.Count==2)
+		{
+			int positionX = (int)System.Math.Round(charactor.transform.position.x);
+			int positionY = (int)System.Math.Round(charactor.transform.position.z);
+			Transform tempCanon = null;
 			
-			if(Vector3.Dot(transform.forward, tempCanon.transform.position)<0)
+			object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+			foreach(Transform tempObjects in gameObjects)
 			{
-				return 2;
+				if(tempObjects!=null)
+				{
+					if(tempObjects.name=="Canon")
+					{
+						if((int)tempObjects.transform.position.x==positionX && (int)tempObjects.transform.position.z==positionY)
+						{
+							tempCanon = tempObjects;
+							tempObjects.GetComponent<FloorCube>().ChangeMaterial();
+						}
+					}
+				}
 			}
-			else if(Vector3.Cross(transform.forward, tempCanon.transform.position).y>0)
-			{
-				return 1;
-			}
-			else if(Vector3.Cross(transform.forward, tempCanon.transform.position).y<0)
-			{
-				return 3;
-			}
-			else
-			{
-				return 0;
-			}
-			return 4;
+			return direction(transform,tempCanon);
 		}
 		return -1;
 
 	}
-	
+
+	int direction(Transform robotTrans, Transform cannonTrans)
+	{
+		int robotX = (int)System.Math.Round (robotTrans.position.x);
+		int robotZ = (int)System.Math.Round (robotTrans.position.z);
+		int cannonX = (int)System.Math.Round (cannonTrans.position.x);
+		int cannonZ = (int)System.Math.Round (cannonTrans.position.z);
+		if(robotX == cannonX)
+		{
+			if(robotZ == cannonZ+1)
+			{
+				switch((int)robotTrans.localEulerAngles.y)
+				{
+				case 0:
+					return 2;
+					break;
+				case 90:
+					return 1;
+					break;
+				case 180:
+					return 0;
+					break;
+				case 270:
+					return 3;
+					break;
+				case 360:
+					return 2;
+					break;
+				case -90:
+					return 3;
+					break;
+				}
+			}
+			else if(robotZ == cannonZ-1)
+			{
+				switch((int)robotTrans.localEulerAngles.y)
+				{
+				case 0:
+					return 0;
+					break;
+				case 90:
+					return 3;
+					break;
+				case 180:
+					return 2;
+					break;
+				case 270:
+					return 1;
+					break;
+				case 360:
+					return 0;
+					break;
+				case -90:
+					return 1;
+					break;
+				}
+			}
+		}
+		else if(robotZ == cannonZ)
+		{
+			if(robotX == cannonX+1)
+			{
+				switch((int)robotTrans.localEulerAngles.y)
+				{
+				case 0:
+					return 3;
+					break;
+				case 90:
+					return 2;
+					break;
+				case 180:
+					return 1;
+					break;
+				case 270:
+					return 0;
+					break;
+				case 360:
+					return 3;
+					break;
+				case -90:
+					return 0;
+					break;
+				}
+			}
+			else if(robotX == cannonX-1)
+			{
+				switch((int)robotTrans.localEulerAngles.y)
+				{
+				case 0:
+					return 1;
+					break;
+				case 90:
+					return 0;
+					break;
+				case 180:
+					return 3;
+					break;
+				case 270:
+					return 2;
+					break;
+				case 360:
+					return 1;
+					break;
+				case -90:
+					return 2;
+					break;
+				}
+			}
+		}
+		return 4;
+	}
+
 	public void DeadState()
 	{
 		Vector3 speedVector = new Vector3 (0,0,0);
 		rigidbody.velocity = transform.rotation * speedVector;
 		gameObject.SetActive (false);
+
+		GameObject charactor = GameObject.Find ("First Person Controller");
+		charactor.GetComponent<SenceLoad> ().CreatureList.Remove (gameObject.transform);
 		//play dead animation.
 	}
 	
@@ -158,7 +280,8 @@ public class AIAction : MonoBehaviour {
 	{
 		if(x==goalX&&y==goalY)
 		{
-			floorGrid[x,y] = tempTag;
+			if(floorGrid[x,y]<tempTag && floorGrid[x,y]!=0){}
+			else floorGrid[x,y] = tempTag;
 		}
 		else if(x>=0 && x<15 && y>=0 && y<15 && floorGrid[x,y]!=-1 && tempTag<=8 )
 		{
@@ -173,25 +296,25 @@ public class AIAction : MonoBehaviour {
 
 	void FloodPath(int x, int y,int orignalX, int orignalY)
 	{
-		if(floorGrid[x+1,y] == floorGrid[x,y]-1)
+		if(x<14&&floorGrid[x+1,y] == floorGrid[x,y]-1)
 		{
 			pathIDList.Add(x+1);
 			pathIDList.Add(y);
 			FloodPath(x+1,y,orignalX,orignalY);
 		}
-		else if(floorGrid[x-1,y] == floorGrid[x,y]-1)
+		else if(x>0&&floorGrid[x-1,y] == floorGrid[x,y]-1)
 		{
 			pathIDList.Add(x-1);
 			pathIDList.Add(y);
 			FloodPath(x-1,y,orignalX,orignalY);
 		}
-		else if(floorGrid[x,y+1] == floorGrid[x,y]-1)
+		else if(y<14&&floorGrid[x,y+1] == floorGrid[x,y]-1)
 		{
 			pathIDList.Add(x);
 			pathIDList.Add(y+1);
 			FloodPath(x,y+1,orignalX,orignalY);
 		}
-		else if(floorGrid[x,y-1] == floorGrid[x,y]-1)
+		else if(y>0&&floorGrid[x,y-1] == floorGrid[x,y]-1)
 		{
 			pathIDList.Add(x);
 			pathIDList.Add(y-1);
@@ -231,6 +354,17 @@ public class AIAction : MonoBehaviour {
 		else return false;
 	}
 
-
+	public bool isInCenter()
+	{
+		float xPart = System.Math.Abs ((float)System.Math.Round(gameObject.transform.position.x) - gameObject.transform.position.x);
+		float zPart = System.Math.Abs ((float)System.Math.Round(gameObject.transform.position.z) - gameObject.transform.position.z);
+		//Debug.Log ("xPart is:"+xPart+"zPart is:"+zPart);
+		if(xPart<0.1&&zPart<0.1)
+		{
+			Debug.Log("CENTER!!!");
+			return true;
+		}
+		else return false;
+	}
 
 }

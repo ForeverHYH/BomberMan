@@ -49,10 +49,12 @@
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\PlatformInputController.js" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" />
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
+     <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
+     <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
+     <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
      <None Include="Assets\Map\map_1.xml" />
      <None Include="Assets\Map\map_4.xml" />
+     <None Include="Assets\DissolveShader\Readme.txt" />
      <None Include="Assets\Map\map_3.xml" />
      <None Include="Assets\Map\map_2.xml" />
  <Reference Include="UnityEngine.UI">

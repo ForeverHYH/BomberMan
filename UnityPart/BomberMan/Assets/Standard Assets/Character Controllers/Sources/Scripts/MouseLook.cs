@@ -40,75 +40,78 @@ public class MouseLook : MonoBehaviour {
 	
 	public Material changeMaterail;
 
-	private float xrayDistance = 5.0f;
+	public float xrayDistance = 1.0f;
 	private int explosiveSpeed = 1;
-	private int maxCanonNumber = 2;
+	public int maxCanonNumber = 1;
 	private int fireDistance = 2;
 	private ArrayList canonList = new ArrayList();
 	public bool couldClicke;
 
 	void Update ()
 	{
-
-		//Input.GetMouseButtonDown (0)
-		if (couldClicke) 
+		if(!StaticComponents.HASDEAD)
 		{
-			//Debug.Log ((int)transform.position.x +"and"+ (int)transform.position.z);
-			m_ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(m_ray,out m_rayhit))
+			//Input.GetMouseButtonDown (0)
+			if (couldClicke) 
 			{
-				//打印射线碰撞到的对象的名称  
-
-				if(m_rayhit.collider.transform.name.Equals("Canon"))
+				//Debug.Log ((int)transform.position.x +"and"+ (int)transform.position.z);
+				m_ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				
+				if (Physics.Raycast(m_ray,out m_rayhit))
 				{
-					if(m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0 && m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove)
+					//打印射线碰撞到的对象的名称  
+					
+					if(m_rayhit.collider.transform.name.Equals("Canon"))
 					{
-						float xDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.x-gameObject.transform.position.x,2); //round is 4 down 6 up 5 to double
-						float zDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.z-gameObject.transform.position.z,2);
-						int firePowDistance = (int)System.Math.Pow(fireDistance,2);
-						if(xDistance+zDistance<=firePowDistance*2 && xDistance<=firePowDistance && zDistance<=firePowDistance && xDistance+zDistance>=0.5f)
+						if(m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0 && m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove)
 						{
-							m_rayhit.collider.gameObject.GetComponent<FloorCube>().ChangeMaterial();
-
-							if(Input.GetMouseButtonUp (0)){
-								Debug.Log (canonList.Count);
-								if(canonList.Count<maxCanonNumber)
-								{
-									canonList.Add(m_rayhit.collider.gameObject.transform); // add canon
-									//Debug.Log("cannon ID is: " + tempCanonID);
-									//Debug.Log("add success:"+canonList.Count);
-									m_rayhit.collider.gameObject.GetComponent<FloorCube>().moving(xrayDistance,explosiveSpeed);
+							float xDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.x-gameObject.transform.position.x,2); //round is 4 down 6 up 5 to double
+							float zDistance =(float)System.Math.Pow(m_rayhit.collider.gameObject.transform.position.z-gameObject.transform.position.z,2);
+							int firePowDistance = (int)System.Math.Pow(fireDistance,2);
+							if(xDistance+zDistance<=firePowDistance*2 && xDistance<=firePowDistance && zDistance<=firePowDistance && xDistance+zDistance>=0.5f)
+							{
+								m_rayhit.collider.gameObject.GetComponent<FloorCube>().ChangeMaterial();
+								
+								if(Input.GetMouseButtonUp (0)){
+									Debug.Log (canonList.Count);
+									if(canonList.Count<maxCanonNumber)
+									{
+										canonList.Add(m_rayhit.collider.gameObject.transform); // add canon
+										//Debug.Log("cannon ID is: " + tempCanonID);
+										//Debug.Log("add success:"+canonList.Count);
+										m_rayhit.collider.gameObject.GetComponent<FloorCube>().moving(xrayDistance,explosiveSpeed);
+									}
 								}
 							}
 						}
 					}
+					
 				}
-
+			}
+			
+			
+			if (axes == RotationAxes.MouseXAndY)
+			{
+				float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+				
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+				
+				transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+			}
+			else if (axes == RotationAxes.MouseX)
+			{
+				transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
+			}
+			else
+			{
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+				
+				transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 			}
 		}
 
-
-		if (axes == RotationAxes.MouseXAndY)
-		{
-			float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
-			
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-		}
-		else if (axes == RotationAxes.MouseX)
-		{
-			transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
-		}
-		else
-		{
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-		}
 	}
 	
 	void Start ()
