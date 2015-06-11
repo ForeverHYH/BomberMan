@@ -1,8 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{C925AD40-E072-15F1-A458-5B63EE91CAF8}") = "BomberMan", "Assembly-CSharp-firstpass-vs.csproj", "{B6014D86-6E89-CA34-FA0A-33D6C3F81231}"
-EndProject
 Project("{C925AD40-E072-15F1-A458-5B63EE91CAF8}") = "BomberMan", "Assembly-CSharp-vs.csproj", "{A23C9898-3F15-7173-75EB-EE14334A7A3B}"
 EndProject
 Global
@@ -11,10 +9,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B6014D86-6E89-CA34-FA0A-33D6C3F81231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6014D86-6E89-CA34-FA0A-33D6C3F81231}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6014D86-6E89-CA34-FA0A-33D6C3F81231}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6014D86-6E89-CA34-FA0A-33D6C3F81231}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A23C9898-3F15-7173-75EB-EE14334A7A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A23C9898-3F15-7173-75EB-EE14334A7A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23C9898-3F15-7173-75EB-EE14334A7A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +17,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																										GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																												GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> Stashed changes
