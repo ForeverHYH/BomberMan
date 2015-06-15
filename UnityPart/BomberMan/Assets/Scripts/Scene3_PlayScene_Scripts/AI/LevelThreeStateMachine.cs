@@ -14,6 +14,7 @@ public class LevelThreeStateMachine : MonoBehaviour {
 	private int hitTime;
 	private int catchTimer;
 	private int catchTime;
+	private int deadCount;
 	// Use this for initialization
 	void Start () {
 		restTime = 20;
@@ -119,11 +120,30 @@ public class LevelThreeStateMachine : MonoBehaviour {
 			catchTimer = 0;
 			hasTurn = false;
 		}
+
+
+		if(deadCount==10)
+		{
+			levelThree.life--;
+		}
+		if(deadCount==20)
+		{
+			levelThree.life--;
+		}
+		if(deadCount==30)
+		{
+			levelThree.life--;
+		}
+		if(levelThree.life==0)
+		{
+			levelThree.DeadState();
+		}
+
 	}
 	
 	void OnParticleCollision (GameObject other)
 	{
-		levelThree.DeadState ();
+		deadCount++;
 	}
 	
 	void OnCollisionEnter(Collision collisionInfo)

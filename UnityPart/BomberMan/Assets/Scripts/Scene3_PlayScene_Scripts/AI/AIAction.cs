@@ -5,6 +5,7 @@ public class AIAction : MonoBehaviour {
 
 	public int speed;
 	public int life;
+	
 	private int[] angles;
 	private RaycastHit hit;
 	private ArrayList robotCanonList = new ArrayList();
@@ -62,7 +63,7 @@ public class AIAction : MonoBehaviour {
 	public void ShotState(int x,int z)
 	{
 		//This function is excute shot of robot, get back one cube when shot
-		object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+		object[] gameObjects = GameObject.FindObjectsOfType(typeof(Transform)) as object[];
 		foreach(Transform tempObjects in gameObjects)
 		{
 			if(tempObjects.transform!=null)
@@ -97,7 +98,7 @@ public class AIAction : MonoBehaviour {
 			int positionY = (int)pathIDList[pathIDList.Count-3];
 			Transform tempCanon = null;
 			
-			object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+			object[] gameObjects = GameObject.FindObjectsOfType(typeof(Transform)) as object[];
 			foreach(Transform tempObjects in gameObjects)
 			{
 				if(tempObjects!=null)
@@ -120,7 +121,7 @@ public class AIAction : MonoBehaviour {
 			int positionY = (int)System.Math.Round(charactor.transform.position.z);
 			Transform tempCanon = null;
 			
-			object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+			object[] gameObjects = GameObject.FindObjectsOfType(typeof(Transform)) as object[];
 			foreach(Transform tempObjects in gameObjects)
 			{
 				if(tempObjects!=null)
@@ -155,22 +156,16 @@ public class AIAction : MonoBehaviour {
 				{
 				case 0:
 					return 2;
-					break;
 				case 90:
 					return 1;
-					break;
 				case 180:
 					return 0;
-					break;
 				case 270:
 					return 3;
-					break;
 				case 360:
 					return 2;
-					break;
 				case -90:
 					return 3;
-					break;
 				}
 			}
 			else if(robotZ == cannonZ-1)
@@ -179,22 +174,16 @@ public class AIAction : MonoBehaviour {
 				{
 				case 0:
 					return 0;
-					break;
 				case 90:
 					return 3;
-					break;
 				case 180:
 					return 2;
-					break;
 				case 270:
 					return 1;
-					break;
 				case 360:
 					return 0;
-					break;
 				case -90:
 					return 1;
-					break;
 				}
 			}
 		}
@@ -206,22 +195,16 @@ public class AIAction : MonoBehaviour {
 				{
 				case 0:
 					return 3;
-					break;
 				case 90:
 					return 2;
-					break;
 				case 180:
 					return 1;
-					break;
 				case 270:
 					return 0;
-					break;
 				case 360:
 					return 3;
-					break;
 				case -90:
 					return 0;
-					break;
 				}
 			}
 			else if(robotX == cannonX-1)
@@ -230,22 +213,16 @@ public class AIAction : MonoBehaviour {
 				{
 				case 0:
 					return 1;
-					break;
 				case 90:
 					return 0;
-					break;
 				case 180:
 					return 3;
-					break;
 				case 270:
 					return 2;
-					break;
 				case 360:
 					return 1;
-					break;
 				case -90:
 					return 2;
-					break;
 				}
 			}
 		}

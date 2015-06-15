@@ -75,6 +75,8 @@
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\UI\SpeedUI.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Wall\WallCube.cs" />
      <Compile Include="Assets\Scripts\Scene4_MapEditorScene_Scripts\MapCamera.cs" />
+     <Compile Include="Assets\Scripts\Scene5_InterludeScene_Scripts\InterludeSceneAudio.cs" />
+     <Compile Include="Assets\Scripts\Scene5_InterludeScene_Scripts\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\StaticComponents.cs" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
      <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />

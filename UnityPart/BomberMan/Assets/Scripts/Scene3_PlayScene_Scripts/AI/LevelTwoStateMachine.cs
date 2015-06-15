@@ -13,6 +13,8 @@ public class LevelTwoStateMachine : MonoBehaviour {
 	private int shotTime;
 	private bool isCollisiontoRobot;
 	private bool hasTurn;
+
+	private int deadCount;
 	void Awake() {
 		levelTwo = GetComponent<AIAction> ();
 	}
@@ -27,6 +29,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 	void Update () {
 		if(levelTwo.isInDanger())
 		{
+			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
 			levelTwo.StopState();
 			levelTwo.TurnState(true);
 			levelTwo.TurnState(true);
@@ -34,6 +37,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 		else if(isCollisiontoRobot&&restTimer<=restTime&&!hasTurn)
 		{
+			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
 			levelTwo.StopState();
 			if(restTimer==restTime){
 				levelTwo.TurnState(true);
@@ -47,6 +51,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.55f)&&restTimer<=restTime)
 		{
+			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
 			levelTwo.StopState();
 			if(restTimer==restTime){
 				levelTwo.TurnState(false);
@@ -69,6 +74,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			{
 				targetX = canonX;
 				targetZ = (int)((canonZ+robotZ+1)/2);
+				gameObject.GetComponentInChildren<Animation>().Play("punch_hi_left");
 				levelTwo.ShotState(targetX,targetZ);
 			}
 			else if(canonZ==robotZ)
@@ -81,17 +87,34 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 		else
 		{
+			gameObject.GetComponentInChildren<Animation>().Play("loop_walk_funny");
 			levelTwo.WalkState();
 			hasTurn = false;
 		}
 		shotTimer++;
 
 
+		if(deadCount==10)
+		{
+			levelTwo.life--;
+		}
+		if(deadCount==20)
+		{
+			levelTwo.life--;
+		}
+		if(deadCount==30)
+		{
+			levelTwo.life--;
+		}
+		if(levelTwo.life==0)
+		{
+			levelTwo.DeadState();
+		}
 	}
 
 	void OnParticleCollision (GameObject other)
 	{
-		levelTwo.DeadState ();
+		deadCount++;
 	}
 
 	void OnCollisionEnter(Collision collisionInfo)

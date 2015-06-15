@@ -7,7 +7,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 	private RaycastHit hit;
 	private int restTimer;
 	private int restTime;
-
+	private int deadCount;
 	private bool isTurn;
 	private bool isCollisiontoRobot;
 
@@ -60,11 +60,29 @@ public class LevelOneStateMachine : MonoBehaviour {
 			gameObject.GetComponentInChildren<Animation>().Play("loop_walk_funny");
 			levelOne.WalkState();
 		}
+
+		if(deadCount==10)
+		{
+			levelOne.life--;
+		}
+		if(deadCount==20)
+		{
+			levelOne.life--;
+		}
+		if(deadCount==30)
+		{
+			levelOne.life--;
+		}
+		if(levelOne.life==0)
+		{
+			levelOne.DeadState();
+		}
 	}
 
 	void OnParticleCollision (GameObject other)
 	{
-		levelOne.DeadState ();
+		deadCount++;
+		//levelOne.DeadState ();
 	}
 
 	void OnCollisionEnter(Collision collisionInfo)
