@@ -60,7 +60,10 @@ public class MouseLook : MonoBehaviour {
 				if (Physics.Raycast(m_ray,out m_rayhit))
 				{
 					//打印射线碰撞到的对象的名称  
-					
+					if(m_rayhit.collider.transform.name.Equals("stupidRobot"))
+					{
+						GetComponent<GameEditor>().seeStupidRobotTime++;
+					}
 					if(m_rayhit.collider.transform.name.Equals("Canon"))
 					{
 						if(m_rayhit.collider.gameObject.GetComponent<FloorCube>().isMoving==0 && m_rayhit.collider.gameObject.GetComponent<FloorCube>().canMove)
@@ -73,13 +76,14 @@ public class MouseLook : MonoBehaviour {
 								m_rayhit.collider.gameObject.GetComponent<FloorCube>().ChangeMaterial();
 								
 								if(Input.GetMouseButtonUp (0)){
-									Debug.Log (canonList.Count);
+									//Debug.Log (canonList.Count);
 									if(canonList.Count<maxCanonNumber)
 									{
 										canonList.Add(m_rayhit.collider.gameObject.transform); // add canon
 										//Debug.Log("cannon ID is: " + tempCanonID);
 										//Debug.Log("add success:"+canonList.Count);
 										m_rayhit.collider.gameObject.GetComponent<FloorCube>().moving(xrayDistance,explosiveSpeed);
+										GetComponent<GameEditor>().clickCannonTime ++;
 									}
 								}
 							}

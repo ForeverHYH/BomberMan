@@ -25,13 +25,13 @@ public class PauseAudio : MonoBehaviour {
 		}
 	}
 
-	public void ResumeMusic(){
-		if(AudioList.Count>0)
-		{
-			foreach(AudioSource i in AudioList)
-			{
-
-			}
-		}
-	}
+//	public void ResumeMusic(){
+//		if(AudioList.Count>0)
+//		{
+//			foreach(AudioSource i in AudioList)
+//			{
+//
+//			}
+//		}
+//	}
 }

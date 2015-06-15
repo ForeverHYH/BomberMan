@@ -53,9 +53,13 @@
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AI\LevelOneStateMachine.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AI\LevelThreeStateMachine.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AI\LevelTwoStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AudioController\AsideAudioController.cs" />
+     <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AudioController\BGMAudioController.cs" />
+     <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AudioController\DeadAudio.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AudioController\PauseAudio.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\AudioController\StepAudio.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Cannon\FloorCube.cs" />
+     <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\GameEditor\GameEditor.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\GameEditor\SenceLoad.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Player\CharacterMotor.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Player\FPSInputController.cs" />

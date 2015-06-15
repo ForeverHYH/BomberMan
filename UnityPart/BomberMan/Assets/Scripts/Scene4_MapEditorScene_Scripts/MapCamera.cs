@@ -35,6 +35,7 @@ public class MapCamera : MonoBehaviour {
 	public GameObject m_ItemSturdyRobot;
 	public GameObject m_ItemSteel;
 	public GameObject m_ItemFastRobot;
+	public GameObject m_ItemStupidRobot;
 	/// <summary>
 	/// path of map_<level>.xml
 	/// </summary>
@@ -79,7 +80,8 @@ public class MapCamera : MonoBehaviour {
 				if (m_rayhit.collider.gameObject.name == "walls" ||
 				    m_rayhit.collider.gameObject.name == "sturdyRobots" ||
 				    m_rayhit.collider.gameObject.name == "steels" ||
-				    m_rayhit.collider.gameObject.name == "fastRobots")
+				    m_rayhit.collider.gameObject.name == "fastRobots"||
+				    m_rayhit.collider.gameObject.name == "stupidRobots")
 				{
 					m_clickItem = Instantiate(m_rayhit.collider.gameObject, m_rayhit.collider.transform.position, Quaternion.identity) as GameObject;
 					m_clickItem.name = m_rayhit.collider.gameObject.name.Substring(0, m_rayhit.collider.gameObject.name.Length - 1);
@@ -89,7 +91,8 @@ public class MapCamera : MonoBehaviour {
 				else if (m_rayhit.collider.gameObject.name == "wall" ||
 				         m_rayhit.collider.gameObject.name == "sturdyRobot" ||
 				         m_rayhit.collider.gameObject.name == "steel" ||
-				         m_rayhit.collider.gameObject.name == "fastRobot")
+				         m_rayhit.collider.gameObject.name == "fastRobot"||
+				         m_rayhit.collider.gameObject.name == "stupidRobot")
 				{
 					m_clickItem = m_rayhit.collider.gameObject;
 				}
@@ -295,7 +298,12 @@ public class MapCamera : MonoBehaviour {
 			{
 				m_readItem = Instantiate(m_ItemFastRobot, psition, Quaternion.identity) as GameObject;
 			}
-			
+
+			else if (current_name.InnerText == "stupidRobot")
+			{
+				m_readItem = Instantiate(m_ItemStupidRobot, psition, Quaternion.identity) as GameObject;
+			}
+
 			else continue;
 			
 			m_readItem.name = current_name.InnerText;
@@ -313,7 +321,7 @@ public class MapCamera : MonoBehaviour {
 		{
 			if(tempObjects.transform!=null)
 			{
-				if(tempObjects.name=="wall"||tempObjects.name=="steel"||tempObjects.name=="fastRobot"||tempObjects.name=="sturdyRobot")
+				if(tempObjects.name=="wall"||tempObjects.name=="steel"||tempObjects.name=="fastRobot"||tempObjects.name=="sturdyRobot"||tempObjects.name=="stupidRobot")
 				{
 					Destroy(tempObjects.gameObject);
 				}
@@ -328,7 +336,7 @@ public class MapCamera : MonoBehaviour {
 		{
 			if(tempObjects.transform!=null)
 			{
-				if(tempObjects.name=="wall"||tempObjects.name=="steel"||tempObjects.name=="fastRobot"||tempObjects.name=="sturdyRobot")
+				if(tempObjects.name=="wall"||tempObjects.name=="steel"||tempObjects.name=="fastRobot"||tempObjects.name=="sturdyRobot"||tempObjects.name=="stupidRobot")
 				{
 					m_Items.Add(tempObjects.gameObject);
 				}

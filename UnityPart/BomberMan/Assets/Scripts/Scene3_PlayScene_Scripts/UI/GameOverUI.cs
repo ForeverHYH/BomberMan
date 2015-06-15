@@ -6,7 +6,7 @@ public class GameOverUI : MonoBehaviour {
 
 	private bool isShow;
 	public bool isGameStop;  // Only controlled by animator:GameOver
-	//public delegate EventHandler();
+
 	// Use this for initialization
 	void Start () {
 		isShow = false;

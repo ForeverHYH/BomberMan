@@ -46,19 +46,22 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\ExplosionSourceEditor.cs" />
-     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\FracturedChunkEditor.cs" />
-     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\FracturedObjectEditor.cs" />
-     <Compile Include="Assets\Ultimate Game Tools\MeshCombiner\Editor\CombinedMeshEditor.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRBuild.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRGameView.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRPrefabs.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRShimLoader.cs" />
+     <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
      <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
      <None Include="Assets\Map\map_1.xml" />
-     <None Include="Assets\Ultimate Game Tools\Fracturing\!Readme - v1.03.txt" />
      <None Include="Assets\Map\map_4.xml" />
      <None Include="Assets\DissolveShader\Readme.txt" />
+     <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Map\map_3.xml" />
-     <None Include="Assets\Ultimate Game Tools\MeshCombiner\!Readme - v1.01.txt" />
      <None Include="Assets\Map\map_2.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
@@ -71,12 +74,6 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{B6014D86-6E89-CA34-FA0A-33D6C3F81231}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{D330176D-56C4-0DF2-E31E-F6E612981841}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{A23C9898-3F15-7173-75EB-EE14334A7A3B}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
       <Project>{9CBA0C46-D1C6-F92B-624C-45961B6A90EA}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>

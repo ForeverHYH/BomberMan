@@ -166,9 +166,9 @@ public class FloorCube : MonoBehaviour {
 		GameObject charactor = GameObject.Find ("First Person Controller");
 		foreach(Transform j in charactor.GetComponent<SenceLoad>().CreatureList)
 		{
-			if(j.position.x<=gameObject.transform.position.x+0.7f&&j.position.x>=gameObject.transform.position.x-0.7f)
+			if(j.position.x<=gameObject.transform.position.x+0.9f&&j.position.x>=gameObject.transform.position.x-0.9f)
 			{
-				if(j.position.z<=gameObject.transform.position.z+0.7f&&j.position.z>=gameObject.transform.position.z-0.7f)
+				if(j.position.z<=gameObject.transform.position.z+0.9f&&j.position.z>=gameObject.transform.position.z-0.9f)
 				{
 					return true;
 				}

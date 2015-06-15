@@ -3,18 +3,123 @@
     <PlayerMoveSpeed>1</PlayerMoveSpeed>
     <PlayerLife>3</PlayerLife>
     <ToolRate>0.5</ToolRate>
-    <VisibilityRate>0.5</VisibilityRate>
+    <VisibilityRate>1</VisibilityRate>
   </config>
   <items>
     <item>
+      <name>stupidRobot</name>
+      <position_x>3</position_x>
+      <position_y>5</position_y>
+    </item>
+    <item>
+      <name>stupidRobot</name>
+      <position_x>9</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>stupidRobot</name>
+      <position_x>5</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>stupidRobot</name>
+      <position_x>11</position_x>
+      <position_y>9</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>8</position_x>
+      <position_y>6</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>6</position_x>
+      <position_y>8</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>8</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>11</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>10</position_x>
+      <position_y>4</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>11</position_x>
+      <position_y>5</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>9</position_x>
+      <position_y>5</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>10</position_x>
+      <position_y>6</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>11</position_x>
+      <position_y>8</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>8</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>9</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>11</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>10</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>9</position_x>
+      <position_y>9</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>8</position_x>
+      <position_y>8</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>6</position_x>
+      <position_y>6</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>6</position_x>
+      <position_y>4</position_y>
+    </item>
+    <item>
       <name>wall</name>
       <position_x>5</position_x>
       <position_y>5</position_y>
     </item>
     <item>
-      <name>steel</name>
-      <position_x>4</position_x>
-      <position_y>5</position_y>
+      <name>wall</name>
+      <position_x>5</position_x>
+      <position_y>3</position_y>
     </item>
     <item>
       <name>wall</name>
@@ -22,19 +127,24 @@
       <position_y>4</position_y>
     </item>
     <item>
-      <name>sturdyRobot</name>
+      <name>wall</name>
       <position_x>3</position_x>
-      <position_y>5</position_y>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>3</position_x>
+      <position_y>6</position_y>
     </item>
     <item>
       <name>steel</name>
-      <position_x>7</position_x>
-      <position_y>9</position_y>
+      <position_x>5</position_x>
+      <position_y>7</position_y>
     </item>
     <item>
-      <name>sturdyRobot</name>
+      <name>steel</name>
       <position_x>5</position_x>
-      <position_y>11</position_y>
+      <position_y>8</position_y>
     </item>
     <item>
       <name>wall</name>
@@ -47,6 +157,56 @@
       <position_y>9</position_y>
     </item>
     <item>
+      <name>wall</name>
+      <position_x>3</position_x>
+      <position_y>9</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>4</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>6</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>wall</name>
+      <position_x>3</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>8</position_x>
+      <position_y>9</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>7</position_x>
+      <position_y>9</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>5</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>6</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>7</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>8</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
       <name>steel</name>
       <position_x>10</position_x>
       <position_y>11</position_y>
@@ -57,9 +217,9 @@
       <position_y>9</position_y>
     </item>
     <item>
-      <name>sturdyRobot</name>
-      <position_x>11</position_x>
-      <position_y>9</position_y>
+      <name>steel</name>
+      <position_x>10</position_x>
+      <position_y>8</position_y>
     </item>
     <item>
       <name>steel</name>
@@ -67,199 +227,19 @@
       <position_y>7</position_y>
     </item>
     <item>
-      <name>wall</name>
-      <position_x>10</position_x>
+      <name>steel</name>
+      <position_x>9</position_x>
       <position_y>6</position_y>
     </item>
     <item>
-      <name>wall</name>
-      <position_x>9</position_x>
-      <position_y>5</position_y>
-    </item>
-    <item>
       <name>steel</name>
       <position_x>11</position_x>
-      <position_y>4</position_y>
-    </item>
-    <item>
-      <name>sturdyRobot</name>
-      <position_x>9</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>7</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>7</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>4</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>4</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
       <position_y>7</position_y>
     </item>
     <item>
       <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>4</position_x>
-      <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>7</position_x>
-      <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>10</position_x>
-      <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>10</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>7</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>4</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
       <position_x>11</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>9</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>8</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>6</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>5</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>3</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>2</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>11</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>8</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>8</position_x>
-      <position_y>4</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>6</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>5</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>3</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>4</position_x>
-      <position_y>3</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>3</position_x>
       <position_y>6</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>10</position_x>
-      <position_y>4</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>9</position_x>
-      <position_y>4</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>5</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>11</position_x>
-      <position_y>5</position_y>
     </item>
     <item>
       <name>steel</name>
@@ -272,13 +252,138 @@
       <position_y>5</position_y>
     </item>
     <item>
-      <name>wall</name>
-      <position_x>6</position_x>
+      <name>steel</name>
+      <position_x>11</position_x>
       <position_y>4</position_y>
     </item>
     <item>
       <name>steel</name>
+      <position_x>9</position_x>
+      <position_y>4</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>8</position_x>
+      <position_y>4</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>7</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>6</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>4</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>4</position_x>
+      <position_y>5</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>4</position_x>
+      <position_y>6</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>3</position_x>
+      <position_y>7</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>3</position_x>
+      <position_y>8</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>3</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>10</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>9</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>8</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>7</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>6</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>5</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>4</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>3</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
       <position_x>2</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>4</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>11</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>12</position_x>
+      <position_y>2</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>12</position_x>
+      <position_y>3</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>12</position_x>
+      <position_y>4</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>12</position_x>
       <position_y>5</position_y>
     </item>
     <item>
@@ -288,38 +393,8 @@
     </item>
     <item>
       <name>steel</name>
-      <position_x>11</position_x>
-      <position_y>6</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>8</position_x>
-      <position_y>6</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>9</position_x>
-      <position_y>6</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>6</position_x>
-      <position_y>6</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>5</position_x>
+      <position_x>12</position_x>
       <position_y>7</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>4</position_x>
-      <position_y>6</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>6</position_y>
     </item>
     <item>
       <name>steel</name>
@@ -328,163 +403,48 @@
     </item>
     <item>
       <name>steel</name>
-      <position_x>11</position_x>
-      <position_y>7</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>10</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>8</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>6</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>9</position_x>
-      <position_y>9</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>5</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>3</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>11</position_x>
-      <position_y>8</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>10</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>steel</name>
       <position_x>12</position_x>
       <position_y>9</position_y>
     </item>
     <item>
       <name>steel</name>
+      <position_x>12</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>12</position_x>
+      <position_y>11</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>12</position_x>
+      <position_y>12</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>11</position_x>
+      <position_y>12</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>10</position_x>
+      <position_y>12</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>9</position_x>
+      <position_y>12</position_y>
+    </item>
+    <item>
+      <name>steel</name>
       <position_x>8</position_x>
-      <position_y>9</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>3</position_x>
-      <position_y>7</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>5</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>4</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>3</position_x>
-      <position_y>9</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>9</position_y>
+      <position_y>12</position_y>
     </item>
     <item>
       <name>steel</name>
       <position_x>7</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>8</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>3</position_x>
-      <position_y>10</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>6</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>3</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>9</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>wall</name>
-      <position_x>11</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>2</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>12</position_x>
       <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>11</position_x>
-      <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>9</position_x>
-      <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>8</position_x>
-      <position_y>11</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>8</position_x>
-      <position_y>12</position_y>
-    </item>
-    <item>
-      <name>steel</name>
-      <position_x>6</position_x>
-      <position_y>10</position_y>
     </item>
     <item>
       <name>steel</name>
@@ -498,8 +458,48 @@
     </item>
     <item>
       <name>steel</name>
+      <position_x>4</position_x>
+      <position_y>12</position_y>
+    </item>
+    <item>
+      <name>steel</name>
       <position_x>3</position_x>
       <position_y>12</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>5</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>6</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>7</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>8</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>9</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>10</position_y>
+    </item>
+    <item>
+      <name>steel</name>
+      <position_x>2</position_x>
+      <position_y>11</position_y>
     </item>
     <item>
       <name>steel</name>

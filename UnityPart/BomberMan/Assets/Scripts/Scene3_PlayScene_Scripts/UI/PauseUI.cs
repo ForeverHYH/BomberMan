@@ -9,7 +9,8 @@ public class PauseUI : MonoBehaviour {
 	public GameObject Restart;
 	public GameObject Exit;
 	public GameObject Resume;
-	
+
+	public bool isPause;
 	private int timer;
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,11 @@ public class PauseUI : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey(KeyCode.Escape))
 		{
+			isPause = true;
 			Pause();
+		}
+		else{
+			isPause = false;
 		}
 
 	}

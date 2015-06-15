@@ -46,23 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\ExplosionSourceEditor.cs" />
-     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\FracturedChunkEditor.cs" />
-     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Editor\FracturedObjectEditor.cs" />
-     <Compile Include="Assets\Ultimate Game Tools\MeshCombiner\Editor\CombinedMeshEditor.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRBuild.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRGameView.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRPrefabs.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRShimLoader.cs" />
+     <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
      <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
      <None Include="Assets\Map\map_1.xml" />
-     <None Include="Assets\Ultimate Game Tools\Fracturing\!Readme - v1.03.txt" />
      <None Include="Assets\Map\map_4.xml" />
      <None Include="Assets\DissolveShader\Readme.txt" />
+     <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Map\map_3.xml" />
-     <None Include="Assets\Ultimate Game Tools\MeshCombiner\!Readme - v1.01.txt" />
      <None Include="Assets\Map\map_2.xml" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/huyonghao/Desktop/BomberMan/UnityPart/BomberMan/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/huyonghao/Desktop/BomberMan/UnityPart/BomberMan/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
@@ -75,12 +75,6 @@
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{B6014D86-6E89-CA34-FA0A-33D6C3F81231}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{A23C9898-3F15-7173-75EB-EE14334A7A3B}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

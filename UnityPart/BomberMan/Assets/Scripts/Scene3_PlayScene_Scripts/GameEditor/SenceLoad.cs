@@ -20,15 +20,14 @@ public class SenceLoad : MonoBehaviour {
 	public GameObject m_ItemSturdyRobot;
 	public GameObject m_ItemSteel;
 	public GameObject m_ItemFastRobot;
+	public GameObject m_ItemStupidRobot;
 
-	private int timer;
+
 
 	public ArrayList CreatureList = new ArrayList();
 	public ArrayList HinderList = new ArrayList();
 
-	public GameObject CeilingCube;
-	public GameObject GroundCube;
-	public GameObject CannonCube;
+
 
 	void Awak(){
 
@@ -41,42 +40,16 @@ public class SenceLoad : MonoBehaviour {
 		m_readItem = null;
 
 		//m_readLevel = StaticComponents.CURRENT_LEVEL.ToString ();
-		m_readLevel = "3";
+		m_readLevel = StaticComponents.CURRENT_LEVEL.ToString ();
 		m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
 		Debug.Log (m_sXmlPath);
 		ReadFromXml (m_sXmlPath);
 
-		timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (timer == 100) {
-			CeilingCube.SetActive (false);
-			//timer=0;
-		}
-		if (timer == 130) {
-			CeilingCube.SetActive (true);
-			//timer=0;
-		}
-//		if (timer == 200) {
-//			CleanObjects();
-//			m_readLevel = "2";
-//			m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
-//			ReadFromXml (m_sXmlPath);		
-//		}
-//		if(CreatureList.Count==0&&timer>200)
-//		{
-//			CannonCube.SetActive(false);
-//			GroundCube.SetActive (false);
-//		}
-//		if((int)gameObject.transform.position.y < -2)
-//		{
-//			StaticComponents.CURRENT_LEVEL++;
-//			Application.LoadLevel("LoadingScene");
-//
-//		}
-		timer++;
+
 		//GameObject.Find ("Ground cube").SetActive (false);
 		//GameObject.Find ("CanonBorn").SetActive (false);
 	}
@@ -152,7 +125,12 @@ public class SenceLoad : MonoBehaviour {
 				m_readItem = Instantiate(m_ItemFastRobot, robotPosition, Quaternion.identity) as GameObject;
 				CreatureList.Add (m_readItem.transform);
 			}
-			
+
+			else if (current_name.InnerText == "stupidRobot")
+			{
+				m_readItem = Instantiate(m_ItemStupidRobot, robotPosition, Quaternion.identity) as GameObject;
+				CreatureList.Add (m_readItem.transform);
+			}
 			else continue;
 			
 			m_readItem.name = current_name.InnerText;
@@ -164,7 +142,7 @@ public class SenceLoad : MonoBehaviour {
 	}
 	void CleanObjects()
 	{
-		object[] gameObjects = GameObject.FindSceneObjectsOfType(typeof(Transform)) as object[];
+		object[] gameObjects = GameObject.FindObjectsOfType(typeof(Transform)) as object[];
 		foreach(Transform tempObjects in gameObjects)
 		{
 			if(tempObjects.transform!=null)
