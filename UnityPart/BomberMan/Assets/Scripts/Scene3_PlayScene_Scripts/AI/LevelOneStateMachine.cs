@@ -10,7 +10,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 	private int deadCount;
 	private bool isTurn;
 	private bool isCollisiontoRobot;
-
+	private bool isDead;
 	//private Animator robotAnimation;
 
 	void Awake() {
@@ -18,6 +18,7 @@ public class LevelOneStateMachine : MonoBehaviour {
 	}
 
 	void Start () {
+		isDead = false;
 		restTime = 20;
 		restTimer = 0;
 		//robotAnimation = GetComponent<Animation> ();
@@ -73,7 +74,12 @@ public class LevelOneStateMachine : MonoBehaviour {
 		{
 			levelOne.life--;
 		}
-		if(levelOne.life==0)
+		if(levelOne.life==0&&!isDead)
+		{
+			isDead = true;
+			GetComponent<AIAudioController>().RobotDeadAudioSource.Play();
+		}
+		if(!GetComponent<AIAudioController>().RobotDeadAudioSource.isPlaying && isDead)
 		{
 			levelOne.DeadState();
 		}

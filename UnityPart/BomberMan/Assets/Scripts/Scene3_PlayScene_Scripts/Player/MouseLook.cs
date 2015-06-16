@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Ovr;
 
 /// MouseLook rotates the transform based on the mouse delta.
 /// Minimum and Maximum values can be used to constrain the possible rotation
@@ -47,16 +48,16 @@ public class MouseLook : MonoBehaviour {
 	private ArrayList canonList = new ArrayList();
 	public bool couldClicke;
 
+	private Vector3 centerPoint = new Vector3(Screen.width / 2.0f, Screen.height / 2.0f, 0.0f);
+
 	void Update ()
 	{
 		if(!StaticComponents.HASDEAD)
 		{
-			//Input.GetMouseButtonDown (0)
 			if (couldClicke) 
 			{
-				//Debug.Log ((int)transform.position.x +"and"+ (int)transform.position.z);
-				m_ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				
+				m_ray = Camera.main.ScreenPointToRay(centerPoint);
+						
 				if (Physics.Raycast(m_ray,out m_rayhit))
 				{
 					//打印射线碰撞到的对象的名称  
@@ -120,6 +121,9 @@ public class MouseLook : MonoBehaviour {
 	
 	void Start ()
 	{
+		//Screen.showCursor = false;
+		Screen.lockCursor = true;
+
 		// Make the rigid body not change rotation
 		if (GetComponent<Rigidbody>())
 			GetComponent<Rigidbody>().freezeRotation = true;

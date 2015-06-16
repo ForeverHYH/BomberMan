@@ -15,8 +15,10 @@ public class LevelThreeStateMachine : MonoBehaviour {
 	private int catchTimer;
 	private int catchTime;
 	private int deadCount;
+	private bool isDead;
 	// Use this for initialization
 	void Start () {
+		isDead = false;
 		restTime = 20;
 		restTimer = 0;
 		hitTime = 10;
@@ -134,7 +136,12 @@ public class LevelThreeStateMachine : MonoBehaviour {
 		{
 			levelThree.life--;
 		}
-		if(levelThree.life==0)
+		if(levelThree.life==0&&!isDead)
+		{
+			isDead = true;
+			GetComponent<AIAudioController>().RobotDeadAudioSource.Play();
+		}
+		if(!GetComponent<AIAudioController>().RobotDeadAudioSource.isPlaying && isDead)
 		{
 			levelThree.DeadState();
 		}

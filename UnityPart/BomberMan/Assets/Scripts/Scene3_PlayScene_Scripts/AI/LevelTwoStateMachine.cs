@@ -15,11 +15,14 @@ public class LevelTwoStateMachine : MonoBehaviour {
 	private bool hasTurn;
 
 	private int deadCount;
+	private bool isDead;
+
 	void Awake() {
 		levelTwo = GetComponent<AIAction> ();
 	}
 
 	void Start () {
+		isDead = false;
 		restTime = 20;
 		restTimer = 0;
 		shotTime = 50;
@@ -106,7 +109,12 @@ public class LevelTwoStateMachine : MonoBehaviour {
 		{
 			levelTwo.life--;
 		}
-		if(levelTwo.life==0)
+		if(levelTwo.life==0&&!isDead)
+		{
+			isDead = true;
+			GetComponent<AIAudioController>().RobotDeadAudioSource.Play();
+		}
+		if(!GetComponent<AIAudioController>().RobotDeadAudioSource.isPlaying && isDead)
 		{
 			levelTwo.DeadState();
 		}

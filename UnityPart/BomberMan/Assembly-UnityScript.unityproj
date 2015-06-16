@@ -47,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\fightBOT (free)\script\robo_animationCheck_free.js" />
+     <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
      <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
      <None Include="Assets\Map\map_1.xml" />
      <None Include="Assets\Map\map_4.xml" />
      <None Include="Assets\DissolveShader\Readme.txt" />
+     <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Map\map_3.xml" />
      <None Include="Assets\Map\map_2.xml" />
  <Reference Include="UnityEngine.UI">

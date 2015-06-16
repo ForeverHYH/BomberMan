@@ -7,6 +7,7 @@ public class InterludeSceneAudio : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		Aside1Music.Play ();
 	}
 	
