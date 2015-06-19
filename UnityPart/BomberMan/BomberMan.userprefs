@@ -1,22 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene1_StartScene_Scripts/StartUI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs">
     <Files>
-      <File FileName="Assets/Scripts/Scene1_StartScene_Scripts/StartUI.cs" Line="18" Column="35" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/GameOverUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene5_InterludeScene_Scripts/InterludeSceneAudio.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/MouseLook.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/SenceLoad.cs" Line="67" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/GameEditor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Prop/Chip.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Prop/AddCannon.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Prop/Map.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Prop/PowerTool.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Prop/Speed.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene4_MapEditorScene_Scripts/MapCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/RestartResumeExitBtn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/PauseUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene2_LoadingScene_Scripts/Loading.cs" Line="48" Column="22" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs" Line="114" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

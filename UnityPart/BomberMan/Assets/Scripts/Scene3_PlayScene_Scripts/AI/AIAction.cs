@@ -109,11 +109,12 @@ public class AIAction : MonoBehaviour {
 						{
 							tempCanon = tempObjects;
 							tempObjects.GetComponent<FloorCube>().ChangeMaterial();
+							return direction(transform,tempCanon);
 						}
 					}
 				}
 			}
-			return direction(transform,tempCanon);
+
 		}
 		else if(pathIDList.Count==2)
 		{
@@ -132,11 +133,11 @@ public class AIAction : MonoBehaviour {
 						{
 							tempCanon = tempObjects;
 							tempObjects.GetComponent<FloorCube>().ChangeMaterial();
+							return direction(transform,tempCanon);
 						}
 					}
 				}
 			}
-			return direction(transform,tempCanon);
 		}
 		return -1;
 

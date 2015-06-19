@@ -23,6 +23,7 @@ public class GameEditor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isSuccess = false;
+		timer = 0;
 		switch(StaticComponents.CURRENT_LEVEL)
 		{
 		case 1:
@@ -39,7 +40,7 @@ public class GameEditor : MonoBehaviour {
 			break;
 		}
 
-
+		DocVoice = GetComponent<AsideAudioController>().Doc1Music;
 		isCeilingCubeShow = true;
 		clickCannonTime = 0;
 		seeStupidRobotTime = 0;
@@ -101,12 +102,26 @@ public class GameEditor : MonoBehaviour {
 			break;
 		}
 		case 2:{
-			if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==0)
+			if (!TomVoice.isPlaying && isCeilingCubeShow) {
+				CeilingCube.SetActive (false);
+				timer++;
+			}
+			if (timer == 30 && !TomVoice.isPlaying) {
+				isCeilingCubeShow = false;
+				CeilingCube.SetActive (true);
+
+			}
+			if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==30)
 			{
 				timer++;
 				CannonCube.SetActive(false);
 				GroundCube.SetActive (false);
 				GetComponent<BGMAudioController>().SuccessBGM.Play();
+			}
+			if((int)gameObject.transform.position.y < -2)
+			{
+				StaticComponents.CURRENT_LEVEL++;
+				Application.LoadLevel("LoadingScene");
 			}
 			break;
 		}
@@ -118,17 +133,17 @@ public class GameEditor : MonoBehaviour {
 			if (timer == 30 && !TomVoice.isPlaying) {
 				isCeilingCubeShow = false;
 				CeilingCube.SetActive (true);
-				DocVoice = GetComponent<AsideAudioController>().Doc1Music;
+				timer++;
 				DocVoice.Play ();
 			}
 
-			if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==30)
+			if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==31)
 			{
 				timer++;
 				Instantiate(Chip, new Vector3(7.0f,1.0f,7.0f), Quaternion.identity);
 			}
 
-			if(isSuccess && timer==31)
+			if(isSuccess && timer==32)
 			{
 				timer++;
 				DocVoice = GetComponent<AsideAudioController>().Doc2Music;
@@ -136,7 +151,7 @@ public class GameEditor : MonoBehaviour {
 				GetComponent<BGMAudioController>().SuccessBGM.Play();
 			}
 
-			if(!DocVoice.isPlaying  && timer==32)
+			if(!DocVoice.isPlaying  && timer==33)
 			{
 				timer++;
 				//play to be continue
