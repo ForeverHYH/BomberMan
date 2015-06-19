@@ -27,10 +27,7 @@ public class AddCannon : MonoBehaviour {
 		}
 	}
 
-	void OnParticleCollision (GameObject other)
-	{
-		gameObject.SetActive (false);
-	}
+
 	
 	void OnTriggerEnter(Collider collisionInfo)
 	{

@@ -15,6 +15,6 @@ public class StartUI : MonoBehaviour {
 
 	public void ClickStartBtn()
 	{
-		Application.LoadLevel("LoadingScene");
+		Application.LoadLevel("InterludeScene");
 	}
 }

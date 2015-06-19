@@ -187,6 +187,10 @@ public class MapCamera : MonoBehaviour {
 		//配置
 		XmlElement xml_config = xmlDoc.CreateElement("config");
 		data.AppendChild(xml_config);
+		//Current Level
+		XmlElement xml_my_current_level = xmlDoc.CreateElement("CurrentLevel");
+		xml_my_current_level.InnerText = m_currentLevel;
+		xml_config.AppendChild(xml_my_current_level);
 		//玩家移动速度
 		XmlElement xml_my_move_speed = xmlDoc.CreateElement("PlayerMoveSpeed");
 		xml_my_move_speed.InnerText = m_sMyMoveSpeed;
@@ -254,6 +258,10 @@ public class MapCamera : MonoBehaviour {
 	
 	void ReadConfig(XmlNode xml_config)
 	{
+		XmlNode xml_my_current_level = xml_config.SelectSingleNode("CurrentLevel");
+		Debug.Log (xml_my_current_level.InnerText);
+		m_currentLevel = xml_my_current_level.InnerText;
+
 		XmlNode xml_my_move_speed = xml_config.SelectSingleNode("PlayerMoveSpeed");
 		m_sMyMoveSpeed = xml_my_move_speed.InnerText;
 		
@@ -308,7 +316,7 @@ public class MapCamera : MonoBehaviour {
 			
 			m_readItem.name = current_name.InnerText;
 			
-			Debug.Log("要读取的数据：" + m_readItem.name + "位置：" + m_readItem.transform.position.x + "," + m_readItem.transform.position.y);
+			//Debug.Log("要读取的数据：" + m_readItem.name + "位置：" + m_readItem.transform.position.x + "," + m_readItem.transform.position.y);
 			
 			//m_Items.Add(m_readItem);
 		}

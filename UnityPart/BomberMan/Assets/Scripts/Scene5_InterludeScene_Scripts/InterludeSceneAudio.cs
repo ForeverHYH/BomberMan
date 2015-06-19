@@ -15,7 +15,7 @@ public class InterludeSceneAudio : MonoBehaviour {
 	void Update () {
 		if(!Aside1Music.isPlaying)
 		{
-			Application.LoadLevel("PlayScene");
+			Application.LoadLevel("LoadingScene");
 		}
 	}
 

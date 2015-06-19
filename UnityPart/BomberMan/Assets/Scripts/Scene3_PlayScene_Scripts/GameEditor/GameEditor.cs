@@ -6,6 +6,7 @@ public class GameEditor : MonoBehaviour {
 	public GameObject CeilingCube;
 	public GameObject GroundCube;
 	public GameObject CannonCube;
+	public GameObject Chip;
 
 	public int clickCannonTime;
 	public int seeStupidRobotTime;
@@ -16,8 +17,12 @@ public class GameEditor : MonoBehaviour {
 	private int timer;
 
 	private bool isCeilingCubeShow;
+
+	public bool isSuccess;
+
 	// Use this for initialization
 	void Start () {
+		isSuccess = false;
 		switch(StaticComponents.CURRENT_LEVEL)
 		{
 		case 1:
@@ -120,9 +125,21 @@ public class GameEditor : MonoBehaviour {
 			if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==30)
 			{
 				timer++;
+				Instantiate(Chip, new Vector3(7.0f,1.0f,7.0f), Quaternion.identity);
+			}
+
+			if(isSuccess && timer==31)
+			{
+				timer++;
 				DocVoice = GetComponent<AsideAudioController>().Doc2Music;
 				DocVoice.Play ();
 				GetComponent<BGMAudioController>().SuccessBGM.Play();
+			}
+
+			if(!DocVoice.isPlaying  && timer==32)
+			{
+				timer++;
+				//play to be continue
 			}
 			break;
 		}

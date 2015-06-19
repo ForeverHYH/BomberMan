@@ -41,10 +41,10 @@ public class SenceLoad : MonoBehaviour {
 
 		//m_readLevel = StaticComponents.CURRENT_LEVEL.ToString ();
 		m_readLevel = StaticComponents.CURRENT_LEVEL.ToString ();
-		m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
-		Debug.Log (m_sXmlPath);
-		ReadFromXml (m_sXmlPath);
-
+		//m_sXmlPath = Application.dataPath + "/Map/map_"+m_readLevel+".xml";
+		m_sXmlPath =  "map_"+m_readLevel;
+		ReadFromXml (Resources.Load (m_sXmlPath).ToString ());
+		RenderSettings.fogDensity = float.Parse(m_visibility);
 	}
 	
 	// Update is called once per frame
@@ -56,24 +56,26 @@ public class SenceLoad : MonoBehaviour {
 
 	void ReadFromXml(string xmlPath)
 	{
-		if (File.Exists(xmlPath))
-		{
+		//if (File.Exists(xmlPath))
+		//{
 			//Debug.Log("Read Start!");
 			m_Items.Clear();
 			CleanObjects();
 			m_readItem = null;
+			
 			XmlDocument xmlDoc = new XmlDocument();
-			xmlDoc.Load(m_sXmlPath);
+			xmlDoc.LoadXml(xmlPath);
+			//xmlDoc.Load(m_sXmlPath);
 			//读取配置
 			XmlNode xml_config = xmlDoc.SelectSingleNode("data/config");
 			ReadConfig(xml_config);
 			//读取地图
 			XmlNode xml_items = xmlDoc.SelectSingleNode("data/items");
 			ReadMap(xml_items);
-		}
-		else{
-			Debug.Log("Cannot find path");
-		}
+		//}
+		//else{
+		//	Debug.Log("Cannot find path");
+		//}
 	}
 	
 	void ReadConfig(XmlNode xml_config)

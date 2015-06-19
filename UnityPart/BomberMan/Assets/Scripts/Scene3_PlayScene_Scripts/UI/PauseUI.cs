@@ -36,6 +36,7 @@ public class PauseUI : MonoBehaviour {
 
 	void Pause()
 	{
+		Screen.lockCursor = false;
 		Panel.SetActive (true);
 		Restart.SetActive (true);
 		Exit.SetActive (true);

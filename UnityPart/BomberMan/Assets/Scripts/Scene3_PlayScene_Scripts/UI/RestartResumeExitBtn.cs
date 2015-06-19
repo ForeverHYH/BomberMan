@@ -22,6 +22,7 @@ public class RestartResumeExitBtn : MonoBehaviour {
 	
 	public void ExitBtnClick()
 	{
+		//Application.Quit ();
 		StaticComponents.HASDEAD = false;
 		GameObject.Find("HPLevel").GetComponent<HPUI>().HPCount=3;
 		Application.LoadLevel("StartScene");

@@ -28,10 +28,10 @@ public class PowerTool : MonoBehaviour {
 		}
 	}
 
-	void OnParticleCollision (GameObject other)
-	{
-		gameObject.SetActive (false);
-	}
+//	void OnParticleCollision (GameObject other)
+//	{
+//		gameObject.SetActive (false);
+//	}
 	
 	void OnTriggerEnter(Collider collisionInfo)
 	{

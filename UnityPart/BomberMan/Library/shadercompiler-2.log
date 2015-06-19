@@ -1,0 +1,32 @@
+Base path: /Applications/Unity/Unity.app/Contents
+Pipe name: \\.\pipe\UnityShaderCompiler-2--1331949568
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=0 type=0 insize=5620 outsize=2261 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3341 outsize=1438 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3341 outsize=1107 kw=SPOT ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6771 outsize=1266 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6771 outsize=2321 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6771 outsize=2779 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4335 outsize=1540 kw=SPOT ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4335 outsize=2820 kw=SPOT ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=6178 outsize=1193 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6178 outsize=2003 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3303 outsize=488 kw=SHADOWS_CUBE ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3349 outsize=1083 kw=SHADOWS_NATIVE ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3349 outsize=1463 kw=SHADOWS_SPLIT_SPHERES SHADOWS_NONATIVE ok=1
+End of pipe
+
+Quitting shader compiler process

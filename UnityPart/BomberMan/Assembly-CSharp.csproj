@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Player\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Player\PlayerState.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Prop\AddCannon.cs" />
+     <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Prop\Chip.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Prop\Map.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Prop\PowerTool.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Prop\Speed.cs" />
@@ -105,13 +106,13 @@
      <None Include="Assets\DissolveShader\Shader\Dissolve_WorldCoords.shader" />
      <None Include="Assets\fightBOT (free)\model\Materials\roboShader.shader" />
      <None Include="Assets\DissolveShader\Shader\Dissolve_TexturCoords.shader" />
-     <None Include="Assets\Map\map_1.xml" />
+     <None Include="Assets\Resources\map_1.xml" />
      <None Include="Assets\Map\map_4.xml" />
      <None Include="Assets\DissolveShader\Readme.txt" />
      <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
-     <None Include="Assets\Map\map_3.xml" />
-     <None Include="Assets\Map\map_2.xml" />
+     <None Include="Assets\Resources\map_3.xml" />
+     <None Include="Assets\Resources\map_2.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
