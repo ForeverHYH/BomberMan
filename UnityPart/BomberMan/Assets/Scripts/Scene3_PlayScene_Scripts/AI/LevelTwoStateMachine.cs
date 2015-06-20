@@ -11,6 +11,8 @@ public class LevelTwoStateMachine : MonoBehaviour {
 	private int restTime;
 	private int shotTimer;
 	private int shotTime;
+	private int returnTimer;
+	private int returnTime;
 	private bool isCollisiontoRobot;
 	private bool hasTurn;
 
@@ -27,6 +29,8 @@ public class LevelTwoStateMachine : MonoBehaviour {
 		restTimer = 0;
 		shotTime = 50;
 		shotTimer = 0;
+		returnTimer = 0;
+		returnTime = 100;
 	}
 
 	void Update () {
@@ -37,7 +41,12 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			levelTwo.TurnState(true);
 			levelTwo.TurnState(true);
 		}
-
+		else if(returnTimer>=returnTime && levelTwo.isInCenter())
+		{
+			returnTimer = 0;
+			levelTwo.StopState();
+			levelTwo.TurnState(true);
+		}
 		else if(isCollisiontoRobot&&restTimer<=restTime&&!hasTurn)
 		{
 			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
@@ -95,6 +104,9 @@ public class LevelTwoStateMachine : MonoBehaviour {
 			hasTurn = false;
 		}
 		shotTimer++;
+		returnTimer++;
+
+
 
 
 		if(deadCount==10)
@@ -127,7 +139,7 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collisionInfo)
 	{
-		Debug.Log("碰撞到的物体的名字是：" + collisionInfo.gameObject.name);
+		//Debug.Log("碰撞到的物体的名字是：" + collisionInfo.gameObject.name);
 		if(collisionInfo.gameObject.name.Equals("sturdyRobot")||collisionInfo.gameObject.name.Equals("fastRobot"))
 		{
 			isCollisiontoRobot = true;

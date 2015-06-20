@@ -1,7 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StaticComponents.cs">
     <Files>
+      <File FileName="Assets/Scripts/StaticComponents.cs" Line="6" Column="37" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Prop/Chip.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs" Line="114" Column="7" />
     </Files>
