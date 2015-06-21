@@ -26,9 +26,15 @@ public class PlayerState : MonoBehaviour {
 				Player.GetComponent<Animation>().Play("Stand");
 			}
 
-			if(GameObject.Find("HPLevel").GetComponent<HPUI>().HPCount==0 )
+			if(GameObject.Find("HPLevel").GetComponent<HPUI>().HPCount==0 )   //Player dead.
 			{
 				StaticComponents.HASDEAD = true;
+
+				GameObject.Find ("First Person Controller").GetComponent<GameEditor> ().TomScript2.SetActive (false);
+				GameObject.Find ("First Person Controller").GetComponent<GameEditor> ().TomScript3.SetActive (false);
+				GameObject.Find ("First Person Controller").GetComponent<GameEditor> ().TomVoice.Stop();
+				GameObject.Find ("First Person Controller").GetComponent<GameEditor> ().DocVoice.Stop();
+
 				Player.GetComponent<Animation>().Play("Deading");
 				GameObject.Find("Main Camera").GetComponent<Transform>().localPosition = new Vector3(0f,0f,0f);
 			}

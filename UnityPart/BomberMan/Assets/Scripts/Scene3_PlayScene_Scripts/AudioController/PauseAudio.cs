@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PauseAudio : MonoBehaviour {
 
-	public static ArrayList AudioList = new ArrayList();
+	public static ArrayList AudioList;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,7 @@ public class PauseAudio : MonoBehaviour {
 	}
 
 	public void PauseMusic(){
+
 		if(AudioList.Count>0)
 		{
 			foreach(AudioSource i in AudioList)
@@ -23,6 +24,18 @@ public class PauseAudio : MonoBehaviour {
 				i.Pause();
 			}
 		}
+
+//		if(GetComponent<GameEditor> ().TomVoice.isPlaying)
+//		{
+//			GetComponent<GameEditor> ().TomVoice.Pause ();
+//			GetComponent<GameEditor> ().isTomPause = true;
+//		}
+//		if(GetComponent<GameEditor> ().DocVoice.isPlaying)
+//		{
+//			GetComponent<GameEditor> ().DocVoice.Pause ();
+//			GetComponent<GameEditor> ().isDocPause = true;
+//		}
+
 	}
 
 //	public void ResumeMusic(){

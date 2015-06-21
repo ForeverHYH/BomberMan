@@ -63,13 +63,21 @@ public class LevelTwoStateMachine : MonoBehaviour {
 
 		else if(Physics.Raycast(transform.position,transform.forward ,out hit,0.55f)&&restTimer<=restTime)
 		{
-			gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
-			levelTwo.StopState();
-			if(restTimer==restTime){
-				levelTwo.TurnState(false);
-				restTimer = 0;
+			if(hit.collider.transform.name.Equals("First Person Controller"))
+			{
+
 			}
-			else restTimer++;
+			else{
+				gameObject.GetComponentInChildren<Animation>().Play("loop_idle");
+				levelTwo.StopState();
+				if(restTimer==restTime){
+					levelTwo.TurnState(false);
+					restTimer = 0;
+				}
+				else restTimer++;
+			}
+
+
 		}
 
 		else if(Physics.Raycast(gameObject.transform.position,gameObject.transform.forward ,out hit,2)&&hit.collider.transform.name.Equals("wall")&&shotTimer>=shotTime)

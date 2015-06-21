@@ -34,6 +34,8 @@ public class SenceLoad : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
+		PauseAudio.AudioList = new ArrayList ();
+
 		Time.timeScale = 1;
 
 		m_Items = new ArrayList();

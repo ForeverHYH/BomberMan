@@ -45,6 +45,8 @@ public class PauseUI : MonoBehaviour {
 		Time.timeScale = 0;
 		GameObject.Find("First Person Controller").GetComponent<PauseAudio>().PauseMusic();
 
+		GameObject.Find ("First Person Controller").GetComponent<GameEditor> ().TomScript2.SetActive (false);
+		GameObject.Find ("First Person Controller").GetComponent<GameEditor> ().TomScript3.SetActive (false);
 	}
 
 
