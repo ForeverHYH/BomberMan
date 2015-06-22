@@ -107,15 +107,16 @@ public class GameEditor : MonoBehaviour {
 					TomScript3.SetActive(false);
 				}
 				//voice 5 see robot
-				if(seeStupidRobotTime==1)
+				if(seeStupidRobotTime==1 && timer ==34)
 				{
+					timer ++;
 					TomVoice.Stop();
 					TomVoice = GetComponent<AsideAudioController>().Tom5Music;
 					TomVoice.Play ();
 				}
 				
 				
-				if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==34)
+				if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==35)
 				{
 					timer++;
 					CannonCube.SetActive(false);
@@ -168,7 +169,8 @@ public class GameEditor : MonoBehaviour {
 				if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==31)
 				{
 					timer++;
-					Instantiate(Chip, new Vector3(7.0f,1.5f,7.0f), Quaternion.identity);
+					Instantiate(Chip, new Vector3(7.0f,1.0f,7.0f), Quaternion.identity);
+					Chip.transform.localEulerAngles = new Vector3(45.0f,0.0f,45.0f);
 					RenderSettings.fogDensity = 0;
 				}
 				
