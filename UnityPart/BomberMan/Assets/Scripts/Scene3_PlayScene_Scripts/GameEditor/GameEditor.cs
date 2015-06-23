@@ -26,6 +26,7 @@ public class GameEditor : MonoBehaviour {
 	public bool isTomScript2Show;
 	public bool isTomScript3Show;
 
+
 	// Use this for initialization
 	void Start () {
 		isSuccess = false;
@@ -185,7 +186,14 @@ public class GameEditor : MonoBehaviour {
 				{
 					timer++;
 					GetComponent<BGMAudioController>().SuccessBGM.Play();
+					GameObject.Find ("Canvas").GetComponent<Animator>().SetTrigger("Success");
 					//play to be continue
+				}
+				if(GameObject.Find ("Canvas").GetComponent<SuccessUI>().isJumptoMainView)
+				{
+					GameObject.Find ("Canvas").GetComponent<SuccessUI>().isJumptoMainView = false;
+					Screen.lockCursor = false;
+					Application.LoadLevel("StartScene");
 				}
 				break;
 			}

@@ -1,13 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3_PlayScene_Scripts/Player/PlayerState.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3_PlayScene_Scripts/UI/PauseUI.cs">
     <Files>
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/PlayerState.cs" Line="29" Column="84" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/GameEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/RestartResumeExitBtn.cs" Line="17" Column="3" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/PauseUI.cs" Line="49" Column="104" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AudioController/PauseAudio.cs" Line="6" Column="36" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/FPSInputController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StaticComponents.cs" Line="6" Column="37" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/PlayerState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/GameEditor.cs" Line="194" Column="84" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AudioController/PauseAudio.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/SenceLoad.cs" Line="37" Column="43" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/SuccessUI.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/PauseUI.cs" Line="49" Column="104" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

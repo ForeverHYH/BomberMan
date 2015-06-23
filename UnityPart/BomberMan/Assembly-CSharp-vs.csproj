@@ -95,6 +95,7 @@
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\UI\PowerToolUI.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\UI\RestartResumeExitBtn.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\UI\SpeedUI.cs" />
+     <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\UI\SuccessUI.cs" />
      <Compile Include="Assets\Scripts\Scene3_PlayScene_Scripts\Wall\WallCube.cs" />
      <Compile Include="Assets\Scripts\Scene4_MapEditorScene_Scripts\MapCamera.cs" />
      <Compile Include="Assets\Scripts\Scene5_InterludeScene_Scripts\InterludeSceneAudio.cs" />
