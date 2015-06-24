@@ -17,4 +17,9 @@ public class StartUI : MonoBehaviour {
 	{
 		Application.LoadLevel("InterludeScene");
 	}
+
+	public void ClickExitBtn()
+	{
+		Application.Quit ();
+	}
 }

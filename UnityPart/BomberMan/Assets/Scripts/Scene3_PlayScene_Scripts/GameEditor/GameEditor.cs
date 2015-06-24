@@ -11,6 +11,8 @@ public class GameEditor : MonoBehaviour {
 	public GameObject TomScript2;
 	public GameObject TomScript3;
 
+	public GameObject SuccessImg;
+
 	public int clickCannonTime;
 	public int seeStupidRobotTime;
 
@@ -29,6 +31,8 @@ public class GameEditor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SuccessImg.SetActive (false);
+
 		isSuccess = false;
 		timer = 0;
 		switch(StaticComponents.CURRENT_LEVEL)
@@ -65,11 +69,12 @@ public class GameEditor : MonoBehaviour {
 				//Voice 3 ceiling cube hide
 				if (!TomVoice.isPlaying && isCeilingCubeShow) {
 					CeilingCube.SetActive (false);
+					SuccessImg.SetActive (false);
 					timer++;
 				}
 				if (timer == 30 && !TomVoice.isPlaying) {
 					isCeilingCubeShow = false;
-					CeilingCube.SetActive (true);
+					//CeilingCube.SetActive (true);
 					TomVoice = GetComponent<AsideAudioController>().Tom3Music;
 					TomVoice.Play ();
 					GetComponent<MouseLook>().maxCanonNumber = 0;
@@ -119,6 +124,7 @@ public class GameEditor : MonoBehaviour {
 				
 				if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==35)
 				{
+					SuccessImg.SetActive (true);
 					timer++;
 					CannonCube.SetActive(false);
 					GroundCube.SetActive (false);
@@ -134,15 +140,17 @@ public class GameEditor : MonoBehaviour {
 			case 2:{
 				if (!TomVoice.isPlaying && isCeilingCubeShow) {
 					CeilingCube.SetActive (false);
+					SuccessImg.SetActive (false);
 					timer++;
 				}
 				if (timer == 30 && !TomVoice.isPlaying) {
 					isCeilingCubeShow = false;
-					CeilingCube.SetActive (true);
+					//CeilingCube.SetActive (true);
 					
 				}
 				if(GetComponent<SenceLoad>().CreatureList.Count==0 && timer==30)
 				{
+					SuccessImg.SetActive (true);
 					timer++;
 					CannonCube.SetActive(false);
 					GroundCube.SetActive (false);
@@ -162,7 +170,7 @@ public class GameEditor : MonoBehaviour {
 				}
 				if (timer == 30 && !TomVoice.isPlaying) {
 					isCeilingCubeShow = false;
-					CeilingCube.SetActive (true);
+					//CeilingCube.SetActive (true);
 					timer++;
 					DocVoice.Play ();
 				}
@@ -193,6 +201,7 @@ public class GameEditor : MonoBehaviour {
 				{
 					GameObject.Find ("Canvas").GetComponent<SuccessUI>().isJumptoMainView = false;
 					Screen.lockCursor = false;
+					StaticComponents.CURRENT_LEVEL = 1;
 					Application.LoadLevel("StartScene");
 				}
 				break;

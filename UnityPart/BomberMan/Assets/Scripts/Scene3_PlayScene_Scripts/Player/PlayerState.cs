@@ -38,11 +38,11 @@ public class PlayerState : MonoBehaviour {
 				Player.GetComponent<Animation>().Play("Deading");
 				GameObject.Find("Main Camera").GetComponent<Transform>().localPosition = new Vector3(0f,0f,0f);
 			}
-			if(deadCount==5 && !StaticComponents.HASDEAD)
+			if(deadCount==15 && !StaticComponents.HASDEAD)
 			{
 				GameObject.Find("HPLevel").GetComponent<HPUI>().HPCount--;
 			}
-			if(deadCount==10 && !StaticComponents.HASDEAD)
+			if(deadCount==30 && !StaticComponents.HASDEAD)
 			{
 				GameObject.Find("HPLevel").GetComponent<HPUI>().HPCount--;
 			}
@@ -73,7 +73,7 @@ public class PlayerState : MonoBehaviour {
 	void OnCollisionEnter(Collision collisionInfo)
 	{
 		Debug.Log("碰撞到的物体的名字是：" + collisionInfo.gameObject.name);
-		if(collisionInfo.gameObject.name.Equals("sturdyRobot")||collisionInfo.gameObject.name.Equals("fastRobot"))
+		if(collisionInfo.gameObject.name.Equals("sturdyRobot")||collisionInfo.gameObject.name.Equals("fastRobot")||collisionInfo.gameObject.name.Equals("stupidRobot"))
 		{
 			StaticComponents.HASDEAD = true;
 			Player.GetComponent<Animation>().Play("Deading");

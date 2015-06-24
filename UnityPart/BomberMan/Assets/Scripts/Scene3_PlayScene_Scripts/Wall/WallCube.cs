@@ -30,7 +30,7 @@ public class WallCube : MonoBehaviour {
 			if (m_fTime >= 1.5f)
 				m_fTime = 0;
 			m_Mat.SetFloat("_Amount", m_fTime);
-			if(timer==50) 
+			if(timer==150) 
 			{
 				int range = Random.Range (0, 100);
 				int intrate = (int)(rate * 100);
