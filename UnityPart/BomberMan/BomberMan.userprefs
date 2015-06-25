@@ -1,21 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scene3_PlayScene_Scripts/Wall/WallCube.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/map_2.xml">
     <Files>
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/FPSInputController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StaticComponents.cs" Line="6" Column="37" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/PlayerState.cs" Line="76" Column="159" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/GameEditor.cs" Line="143" Column="35" />
+      <File FileName="Assets/Scripts/StaticComponents.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/PlayerState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/GameEditor/GameEditor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AudioController/PauseAudio.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AI/AIAction.cs" Line="88" Column="18" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/SuccessUI.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/UI/PauseUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AudioController/StepAudio.cs" Line="13" Column="14" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/AudioController/StepAudio.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Player/CharacterMotor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Cannon/FloorCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Wall/WallCube.cs" Line="33" Column="17" />
+      <File FileName="Assets/Scripts/Scene3_PlayScene_Scripts/Wall/WallCube.cs" Line="1" Column="1" />
       <File FileName="Assets/OVR/Scripts/OVRCameraRig.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Scene1_StartScene_Scripts/StartUI.cs" Line="26" Column="1" />
+      <File FileName="Assets/Scripts/Scene1_StartScene_Scripts/StartUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/map_2.xml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

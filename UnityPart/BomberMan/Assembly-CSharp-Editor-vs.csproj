@@ -61,7 +61,8 @@
      <None Include="Assets\DissolveShader\Readme.txt" />
      <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
-     <None Include="Assets\Resources\map_3.xml" />
+     <None Include="Assets\Map\map_3.xml" />
+     <None Include="Assets\Map\map_1.xml" />
      <None Include="Assets\Resources\map_2.xml" />
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/huyonghao/Desktop/BomberMan/UnityPart/BomberMan/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
